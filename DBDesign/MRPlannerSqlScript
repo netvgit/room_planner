@@ -1,0 +1,186 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+CREATE SCHEMA IF NOT EXISTS `MRoomPlannerDB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `MRoomPlannerDB` ;
+
+-- -----------------------------------------------------
+-- Table `MRoomPlannerDB`.`User_Role`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `MRoomPlannerDB`.`User_Role` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `type` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `MRoomPlannerDB`.`User`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `MRoomPlannerDB`.`User` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  `contact_numbers` VARCHAR(45) NULL,
+  `role` INT NOT NULL,
+  PRIMARY KEY (`id`, `email`),
+  INDEX `fk_role_id_idx` (`role` ASC),
+  CONSTRAINT `fk_role_id`
+    FOREIGN KEY (`role`)
+    REFERENCES `MRoomPlannerDB`.`User_Role` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `MRoomPlannerDB`.`Location`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `MRoomPlannerDB`.`Location` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `floor` VARCHAR(45) NOT NULL,
+  `building` VARCHAR(45) NOT NULL,
+  `city` VARCHAR(45) NOT NULL,
+  `state` VARCHAR(45) NOT NULL,
+  `country` VARCHAR(45) NOT NULL,
+  `postal_code` VARCHAR(45) NULL,
+  `time_zone` VARCHAR(45) NOT NULL,
+  `number_rooms` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `MRoomPlannerDB`.`Meeting_Room`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `MRoomPlannerDB`.`Meeting_Room` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `capacity` VARCHAR(45) NOT NULL,
+  `slot_color` VARCHAR(45) NULL,
+  `location` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `location_idx` (`location` ASC),
+  CONSTRAINT `fk_location`
+    FOREIGN KEY (`location`)
+    REFERENCES `MRoomPlannerDB`.`Location` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `MRoomPlannerDB`.`Notification`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `MRoomPlannerDB`.`Notification` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `type` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `MRoomPlannerDB`.`Facility`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `MRoomPlannerDB`.`Facility` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `type` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `MRoomPlannerDB`.`Slot`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `MRoomPlannerDB`.`Slot` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `date` VARCHAR(45) NOT NULL,
+  `start_time` VARCHAR(45) NOT NULL,
+  `end_time` VARCHAR(45) NOT NULL,
+  `owner_id` INT NOT NULL,
+  `room_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `room_id_idx` (`room_id` ASC),
+  INDEX `fk_owner_id_idx` (`owner_id` ASC),
+  CONSTRAINT `fk_owner_id`
+    FOREIGN KEY (`owner_id`)
+    REFERENCES `MRoomPlannerDB`.`User` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_room_id`
+    FOREIGN KEY (`room_id`)
+    REFERENCES `MRoomPlannerDB`.`Meeting_Room` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `MRoomPlannerDB`.`User_Notifications`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `MRoomPlannerDB`.`User_Notifications` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `notification_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_notification_id_idx` (`notification_id` ASC),
+  INDEX `fk_user_id_idx` (`user_id` ASC),
+  CONSTRAINT `fk_notification_id`
+    FOREIGN KEY (`notification_id`)
+    REFERENCES `MRoomPlannerDB`.`Notification` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_id`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `MRoomPlannerDB`.`User` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `MRoomPlannerDB`.`Room_Facilities`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `MRoomPlannerDB`.`Room_Facilities` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `meeting_room_id` INT NOT NULL,
+  `facility_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `room_id_idx` (`meeting_room_id` ASC),
+  INDEX `facilitiy_id_idx` (`facility_id` ASC),
+  CONSTRAINT `fk_meeting_room_id`
+    FOREIGN KEY (`meeting_room_id`)
+    REFERENCES `MRoomPlannerDB`.`Meeting_Room` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_facilitiy_id`
+    FOREIGN KEY (`facility_id`)
+    REFERENCES `MRoomPlannerDB`.`Facility` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+INSERT INTO `User_Role` (`type`)
+VALUES ('Admin');
+
+INSERT INTO `User_Role` (`type`)
+VALUES ('Resource Manager');
+
+INSERT INTO `User_Role` (`type`)
+VALUES ('Normal User');
+
+INSERT INTO User (`email`,`password`,`first_name`,`last_name`,`contact_numbers`,`role`)
+VALUES ('admin@imaginea.com','admin','admin','admin','09999999999',1);
+
+INSERT INTO User (`email`,`password`,`first_name`,`last_name`,`contact_numbers`,`role`)
+VALUES ('farahnaj.inamdar@imaginea.com','pswd','farah','inamdar','09888888888',3);
