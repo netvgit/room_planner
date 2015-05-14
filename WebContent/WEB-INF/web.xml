@@ -3,22 +3,39 @@
   <display-name>MRPlanner</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-  </welcome-file-list>  
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>servlet.Login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Registration</servlet-name>
+    <servlet-class>servlet.Registration</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Registration</servlet-name>
+    <url-pattern>/registration</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Welcome</servlet-name>
+    <servlet-class>servlet.Welcome</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Welcome</servlet-name>
+    <url-pattern>/welcome</url-pattern>
+  </servlet-mapping>
   
   <servlet>
-        <servlet-name>Login</servlet-name>
-        <servlet-class>servlet.Login</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Welcome</servlet-name>
-        <servlet-class>servlet.Welcome</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Login</servlet-name>
-        <url-pattern>/Login</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Welcome</servlet-name>
-        <url-pattern>/Welcome</url-pattern>
-    </servlet-mapping>
+    <servlet-name>Home</servlet-name>
+    <jsp-file>/home.jsp</jsp-file>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>Home</servlet-name>
+    <url-pattern>/home</url-pattern>
+</servlet-mapping>
 </web-app>
