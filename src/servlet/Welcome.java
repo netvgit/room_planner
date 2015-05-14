@@ -15,14 +15,19 @@ import javax.servlet.http.HttpServletResponse;
 //@WebServlet("/Welcome")
 public class Welcome extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println("Welcome user");
+                      
+        String first_name=request.getParameter("first_name");
+        String last_name=request.getParameter("last_name");
+        out.print("Welcome "+first_name+" "+last_name+".");
+        out.println("Registration is Successful.");
+        out.println("Please Login Here <a href='index.html'>Go to Login</a>");
 	}
 
 }
