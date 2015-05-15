@@ -20,7 +20,7 @@
          });
      }
  ]);
-
+ 
  mrpApp.run(function($rootScope, $interval) {
      $rootScope.AssignedDate = Date; // 'Date' on home page in nav bar
      $rootScope.MainHeading = "MR Planner"; // Heading of main content
@@ -29,6 +29,13 @@
          // nothing is required here, interval triggers digest automaticaly
      }, 1000)
  });
+ 
+ mrpApp.factory('searchSlotService', function() {
+	  var _dataObj = {};
+	  return {
+	    dataObj: _dataObj
+	  };
+});
 
  // Global action like add event, display profile name
  mrpApp.controller('MRPController', function($rootScope, $scope) {
@@ -41,10 +48,14 @@
  });
 
  // Displays available rooms in Grid view
- mrpApp.controller('AvailableRoomsViewController', function($rootScope, $scope) {
+ mrpApp.controller('AvailableRoomsViewController', function($rootScope, $scope,searchSlotService) {
      // Get data
      $scope.mrp = {};
      $scope.mrp.roomsList = roomsJSON;
+     
+     $scope.mrp.searchSlot = searchSlotService.dataObj;
+     
+     console.log($scope.mrp.searchSlot);
      
      // Changes main content heading
      $rootScope.MainHeading = "Available Rooms";
@@ -85,7 +96,17 @@
 
          // Assign owner id
          slot.owner_id = user_id;
+         
+         // Assign start time
+         slot.date = $scope.mrp.searchSlot.date;
 
+         // Assign start time
+         slot.start_time = $scope.mrp.searchSlot.startTime;
+
+         // Assign end time
+         slot.end_time = $scope.mrp.searchSlot.endTime;
+
+         
          // Add new event in events json array
          slotsJSON[slotsJSON.length] = slot;
          
@@ -96,7 +117,7 @@
 
  
 //Displays single selected slot in slot detail view
- mrpApp.controller('SlotDetailViewController', function($rootScope, $scope, $location, $routeParams) {
+ mrpApp.controller('SlotDetailViewController', function($rootScope, $scope, $routeParams) {
      // Gets id of slot from route
      $scope.slotId = $routeParams.slotId;
 
@@ -112,7 +133,47 @@
  
  
 //Displays search landing page
- mrpApp.controller('SearchRoomsViewController', function($rootScope, $scope, $location, $routeParams) {
+ mrpApp.controller('SearchRoomsViewController', function($rootScope, $scope,searchSlotService) {
      // Changes main content heading
      $rootScope.MainHeading = "Search Room";
+     
+     // Create empty slot search
+     slotSearch = {};
+     
+     // Set current date
+     var date = new Date();
+     var day = date.getDate();
+     var monthIndex = date.getMonth();
+     var year = date.getFullYear();
+     slotSearch.date = year + '-' + ((monthIndex < 10) ? ("0" + monthIndex) : monthIndex) + '-' + ((day < 10) ? ("0" + day) : day);
+
+     // Set current time
+     var hr = date.getHours();
+     var min = date.getMinutes();
+     slotSearch.startTime = ((hr < 10) ? ("0" + hr) : hr) + ':' + ((min < 10) ? ("0" + min) : min);
+     
+     // Set current time
+     var hr = date.getHours();
+     var min = date.getMinutes();
+     slotSearch.endTime = ((hr < 10) ? ("0" + hr) : hr) + ':' + ((min < 10) ? ("0" + min) : min);
+    
+     $scope.slotSearch = slotSearch;
+    
+     
+     // Submit search details to find room
+     $scope.submitSearch = function(slotSearch, isValid) {
+         console.log(slotSearch);
+         console.log(isValid);     
+         
+         // check to make sure the form is completely valid
+         if (!isValid) {
+             alert("Fill proper details.");
+             return;
+         }
+         
+         searchSlotService.dataObj = slotSearch;
+         
+         // Show slot in slot detail view
+         window.location = '#/availablerooms';
+     };
  });

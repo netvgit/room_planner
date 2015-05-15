@@ -12,3 +12,4 @@ jQuery(function($) {
         $("#wrapper").toggleClass("toggled");
     });
 });
+

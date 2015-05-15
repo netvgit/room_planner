@@ -1,0 +1,72 @@
+		#searchRoomForm .left-column{
+            border-right: 1px dashed #e0e0e0;
+            
+         }
+
+         #searchRoomForm .row{
+            margin-bottom: 20px;
+            position: relative;
+         }
+
+         #searchRoomForm #submit-button{
+            width: 50%;
+            display: block;
+            margin: auto;
+         }
+
+         #searchRoomForm #select-div{
+            width: 100%;
+         }
+
+      
+
+         /* CSS REQUIRED */
+         .state-icon {
+             left: -5px;
+         }
+
+         #toggle-filter{
+            height: 40px;
+            width: 40px;
+            position: relative;
+            top: 0;
+            left: -55px;
+      
+         }
+
+         @media only screen and (max-width : 767px) {
+            #filters-column{
+                 position:fixed;
+                 float:right;
+                 width: 250px;
+                 height: 100%;
+                 right: -250px;
+               top:40px;
+                 padding-right: 0px;
+                 background-color: #e0e0e0;
+            z-index:99;
+           }
+
+           #select-div{
+            margin-top: 20px;
+           }
+           
+           #toggle-filter{
+            display:block;
+             position:relative;
+             top: 0px;
+             left:-55px; 
+           }
+                 
+         }
+
+         @media only screen and (min-width : 767px){
+            #filters-column{
+               position:static;
+               }
+
+            #toggle-filter{
+               display:none;
+               position:static;
+               }
+         }

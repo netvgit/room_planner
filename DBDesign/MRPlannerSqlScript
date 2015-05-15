@@ -104,6 +104,9 @@ CREATE TABLE IF NOT EXISTS `MRoomPlannerDB`.`Slot` (
   `end_time` VARCHAR(45) NOT NULL,
   `owner_id` INT NOT NULL,
   `room_id` INT NOT NULL,
+  `agenda` VARCHAR(45) NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `attendees` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),
   INDEX `room_id_idx` (`room_id` ASC),
   INDEX `fk_owner_id_idx` (`owner_id` ASC),
@@ -184,3 +187,7 @@ VALUES ('admin@imaginea.com','admin','admin','admin','09999999999',1);
 
 INSERT INTO User (`email`,`password`,`first_name`,`last_name`,`contact_numbers`,`role`)
 VALUES ('farahnaj.inamdar@imaginea.com','pswd','farah','inamdar','09888888888',3);
+
+select * from User_Role;
+
+select * from User;

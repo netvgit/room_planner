@@ -10,15 +10,18 @@
   <link rel="stylesheet" href="css/signin.css">
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/mrplanner.css">
+  <link rel="stylesheet" href="css/searchpage.css">  
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <script src="js/lib/angular.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js"></script>
-  
+    
   <script src="data/mrpJson.js"></script>
   <script src="js/mrpCore.js"></script>
   <script src="js/mrpAngular.js"></script>
   <script src="js/mrpUi.js"></script>
+  <script src="js/searchpage.js"></script>
 </head>
 
 <%
@@ -108,9 +111,12 @@ var user_id="<%=userId%>";
 
 
  <script type="text/ng-template" id="availableroomsView.htm">
+        <b>Date :</b><span ng-bind="mrp.searchSlot.date"></span><br>
+		<b>Start Time :</b><span ng-bind="mrp.searchSlot.startTime"></span><br>
+		<b>End Time :</b><span ng-bind="mrp.searchSlot.endTime"></span><br>
          <div class="row">
             <div class="col-xs-6 col-lg-4 room-body" ng-repeat="room in mrp.roomsList | filter:mrp.roomsList.search | orderBy:'name'">
-                <div><h1><span class="label label-default">{{room.name}}</span></h1>
+                <div ng-click='bookSlot(room.id)'><h1><span class="label label-default">{{room.name}}</span></h1>
                     <b>Location: </b><span ng-bind="room.location"></span><br>
                     <b>Capacity: </b><span ng-bind="room.capacity"></span>
                 </div>
@@ -141,11 +147,14 @@ var user_id="<%=userId%>";
                         <h4>Meeting Room Details </h4> 
                         Name: {{room.name}}<br>
                         Location: <span ng-bind="room.location"></span><br>
-                        Facilities: <span ng-bind="room.facilities"></span>
+                        Facilities: <span ng-bind="room.facilities"></span><br>
+                        Date: <span ng-bind="mrp.searchSlot.date"></span><br>
+						Start Time: <span ng-bind="mrp.searchSlot.startTime"></span><br>
+						End Time: <span ng-bind="mrp.searchSlot.endTime"></span>
                        </div>
  
                        <!-- FORM -->
-                       <form name="slotForm" ng-submit="submitSlot(slot, room,slotForm.$valid)" novalidate>
+                       <form name="slotForm" novalidate>
 
         				    <!--Meeting NAME -->
         					<div class="form-group">
@@ -202,7 +211,109 @@ var user_id="<%=userId%>";
 </script>
 
 <script type="text/ng-template" id="searchRoomsView.htm">
-<img src="images/ajax-spinner.gif"></img>
+<div class="container">
+   <form name="searchRoomForm" novalidate id="searchRoomForm">
+			<div class="row">
+				<div class="col-sm-8 col-xs-12 left-column">
+					<div class="row">
+						<div class="col-sm-6">
+							<span>DATE: </span>
+							<div class="form-group">
+				                <div class='input-group'>				           			
+				                    <span class="input-group-addon">
+				                    	<span class="glyphicon glyphicon-calendar"></span>
+				                    </span>
+									<input type='date' class="form-control" name="date" ng-model="slotSearch.date" required/>
+				                </div>
+				            </div>
+					</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6">
+							<span>FROM: </span>
+							<div class="form-group">
+				                <div class='input-group'>				           			
+				                    <span class="input-group-addon">
+				                    	<span class="glyphicon glyphicon-time"></span>
+				                    </span>
+									<input type='time' class="form-control" name="startTime" ng-model="slotSearch.startTime" required/>
+				                </div>
+				            </div>
+						</div>
+						<div class="col-sm-6">
+							<span>TILL: </span>
+							<div class="form-group">
+				                <div class='input-group'>			           			
+				                    <span class="input-group-addon">
+				                    	<span class="glyphicon glyphicon-time"></span>
+				                    </span>
+									<input type='time' class="form-control" name="endTime" ng-model="slotSearch.endTime"/>
+				                </div>
+				            </div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="input-group">
+								<span class="input-group-addon">
+					            	<span class="glyphicon glyphicon-user"></span>
+					            </span>
+					            <input type='text' type="number" class="form-control" placeholder="No of attendees"/>
+				            </div>
+						</div>
+						<div class="col-sm-6">
+							<div class="input-group" id="select-div">
+					            <span class="input-group-addon">
+					            	<span class="glyphicon glyphicon-map-marker"></span>
+					            </span>
+					            <select class="form-control" id="sel1">
+					              <option>Hyderabad</option>
+					              <option>Banglore</option>
+					              <option>Chennai</option>
+					              <option>United States</option>
+					            </select>
+					            <br>
+				            </div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6 checkbox">
+						    <label>
+						      <input type="checkbox"> Recurring
+						    </label>
+						</div>
+					</div>
+					<div class="row">
+						<div>
+							<button class="btn btn-inverse" type="button" id="submit-button" ng-click="submitSearch(slotSearch, searchRoomForm.$valid)">Submit</button>
+						</div>
+					</div>
+
+				</div> <!-- Datetimepicker, other input fields --> 
+
+				<div class="col-sm-4" id="filters-column">
+					<!-- <button id="toggle-filter"><span>F</span></button> -->
+					<button id="toggle-filter">
+				        <span class="glyphicon glypgicon-user">F</span>
+			        </button>
+					<div>
+						<h3 class="text-center">Facilities Required</h3>
+			            <div style="overflow: auto;">
+			            	<ul id="check-list-box" class="list-group checked-list-box">
+			                  <li class="list-group-item">Air Conditioner</li>
+			                  <li class="list-group-item">Projector</li>
+			                  <li class="list-group-item">White Board</li>
+			                  <li class="list-group-item">Telephones</li>
+			                  <li class="list-group-item">Speaker</li>
+			                </ul>
+			                <br />
+			            </div>
+		            </div>
+				</div> <!-- Filters Column -->
+			</div><!-- Main Row division -->
+			</form>
+</div>
 </script>
 </body>
 

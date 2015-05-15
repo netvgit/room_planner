@@ -17,5 +17,5 @@ var AppOperations = {
             if (slotId == slotsJSON[i].id)
                 return slotsJSON[i];
         }
-    }
+    }      
 };
