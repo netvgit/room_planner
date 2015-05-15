@@ -1,6 +1,5 @@
 /**
- * Global object of events in array.
- * Date : yyyy-MM-dd
+ * Global object of rooms in array.
  */
 var roomsJSON = [{
     "id": 1,
@@ -86,4 +85,32 @@ var roomsJSON = [{
     "capacity": "10",
     "color": "pink",
     "facilities" : ["AC","White Board"]
+}];
+
+
+/**
+ * Global object of slots in array.
+ * Date : yyyy-MM-dd
+ */
+
+var slotsJSON = [{
+    "id": 1,
+    "room_id": 1,
+    "owner_id" : "admin",
+    "date": "2015-01-12",
+    "start_time": "10:00 AM",
+    "end_time": "11:00 AM",
+    "agenda":"Next step1",
+    "name":"Next step1",
+    "attendees":"sdfsd@sdf.sdfs,sdfsd@sdf.sdfs"
+}, {
+    "id": 2,
+    "room_id": 3,
+    "owner_id" : "admin",
+    "date": "2015-02-12",
+    "start_time": "10:00 AM",
+    "end_time": "11:00 AM",
+    "agenda":"Next step2",
+    "name":"Next step2",
+    "attendees":"sdfsd@sdf.sdfs,sdfsd@sdf.sdfs"
 }];

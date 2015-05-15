@@ -8,7 +8,7 @@
 
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/signin.css">
-  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/mrplanner.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -127,7 +127,79 @@ var user_id="<%=userId%>";
                 </div>
             </div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="bookSlotModal" tabindex="-1" role="dialog" aria-labelledby="bookSlotModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="bookSlotModalLabel">Book Slot</h4>
+                    </div>
+                    <div class="modal-body">
+                       <div class="jumbotron" style="padding: 2px;">
+                        <h4>Meeting Room Details </h4> 
+                        Name: {{room.name}}<br>
+                        Location: <span ng-bind="room.location"></span><br>
+                        Facilities: <span ng-bind="room.facilities"></span>
+                       </div>
+ 
+                       <!-- FORM -->
+                       <form name="slotForm" ng-submit="submitSlot(slot, room,slotForm.$valid)" novalidate>
+
+        				    <!--Meeting NAME -->
+        					<div class="form-group">
+            	               <label>Meeting Name</label> 
+                               <input type="text" name="name" class="form-control" ng-model="slot.name" required>
+                            </div>
+
+        					<!-- Agenda -->
+        					<div class="form-group">
+            					<label>Agenda</label>
+            					<input type="text" name="agenda" class="form-control" ng-model="slot.agenda" ng-minlength="3">
+        				    </div>
+        
+        					<!-- Attendees -->
+        					<div class="form-group">
+            					<label>Attendees</label>
+            					<input type="text" name="attendees" class="form-control" ng-model="slot.attendees">
+        					</div>
+                        </form>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" ng-click="submitSlot(slot, room,slotForm.$valid)">Book</button>
+                      </div>
+                </div>
+            </div>
+        </div>
 </script>
+
+
+<script type="text/ng-template" id="slotDetailView.htm">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title" ng-bind="slot.name"></h3>                
+            </div>
+            <div class="panel-body">                
+                <b>Owner: </b><span ng-bind="slot.owner_id"></span><br>
+                <b>Agenda: </b><span ng-bind="slot.agenda"></span><br>
+                <b>Attendees: </b><span ng-bind="slot.attendees"></span><br>
+                <b>Date: </b><span ng-bind="slot.date | date:'dd MMM yyyy'"></span><br>
+                <b>Start Time: </b><span ng-bind="slot.start_time | date:'hh:mm a'"></span><br>
+                <b>End Time: </b><span ng-bind="slot.end_time | date:'hh:mm a'"></span><br><br>
+                
+                <div class="jumbotron" style="padding: 2px;">
+                        <h4>Venue </h4> 
+                        Meeting Room Name: {{room.name}}<br>
+                        Meeting Room Number: {{room.id}}<br>
+                        Location: <span ng-bind="room.location"></span><br>
+                        Facilities: <span ng-bind="room.facilities"></span>
+                </div>
+            </div>
+        </div>
+    </script>
 </body>
 
 </html>
