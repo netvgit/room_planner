@@ -199,7 +199,11 @@ var user_id="<%=userId%>";
                 </div>
             </div>
         </div>
-    </script>
+</script>
+
+<script type="text/ng-template" id="searchRoomsView.htm">
+<img src="images/ajax-spinner.gif"></img>
+</script>
 </body>
 
 </html>

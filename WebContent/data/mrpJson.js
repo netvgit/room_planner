@@ -3,84 +3,84 @@
  */
 var roomsJSON = [{
     "id": 1,
-    "name": "Angular js Coding",
+    "name": "Angular js Room",
     "location": "Panjagutta, Hyderabad",
     "capacity": "10",
     "color": "red",
     "facilities" : ["AC","White Board"]
 }, {
     "id": 2,
-    "name": "Java Coding",
+    "name": "Java Room",
     "location": "Madhapur, Hyderabad",
     "capacity": "16",
     "color": "green",
     "facilities" : ["AC","White Board"]
 }, {
     "id": 3,
-    "name": "Java Script Coding",
+    "name": "Java Script Room",
     "location": "Hitech City, Hyderabad",
     "capacity": "15",
     "color": "black",
     "facilities" : ["AC","White Board"]
 }, {
     "id": 4,
-    "name": "VB Coding",
+    "name": "VB Room",
     "location": "Kondapur, Hyderabad",
     "capacity": "10",
     "color": "blue",
     "facilities" : ["AC","White Board"]
 }, {
     "id": 5,
-    "name": "CSS Coding",
+    "name": "CSS Room",
     "location": "Kothaguda, Hyderabad",
     "capacity": "100",
     "color": "red",
     "facilities" : ["AC","White Board"]
 }, {
     "id": 6,
-    "name": "HTML Coding",
+    "name": "HTML Room",
     "location": "Madhapur, Hyderabad",
     "capacity": "50",
     "color": "brown",
     "facilities" : ["AC","White Board"]
 }, {
     "id": 7,
-    "name": "JQuery Coding",
+    "name": "JQuery Room",
     "location": "Ameerpet, Hyderabad",
     "capacity": "70",
     "color": "red",
     "facilities" : ["AC","White Board"]
 }, {
     "id": 8,
-    "name": "Shell Script Coding",
+    "name": "Shell Script Room",
     "location": "MLA Colony, Hyderabad",
     "capacity": "80",
     "color": "skyblue",
     "facilities" : ["AC","White Board"]
 }, {
     "id": 9,
-    "name": "Ruby Coding",
+    "name": "Ruby Room",
     "location": "Kondapur, Hyderabad",
     "capacity": "34",
     "color": "red",
     "facilities" : ["AC","White Board"]
 }, {
     "id": 10,
-    "name": "Python Coding",
+    "name": "Python Room",
     "location": "Madhapur, Hyderabad",
     "capacity": "20",
     "color": "yellow",
     "facilities" : ["AC","White Board"]
 }, {
     "id": 11,
-    "name": "C Coding",
+    "name": "C Room",
     "location": "Charminar, Hyderabad",
     "capacity": "30",
     "color": "red",
     "facilities" : ["AC","White Board"]
 }, {
     "id": 12,
-    "name": "C++ Coding",
+    "name": "C++ Room",
     "location": "Medhipattanam, Hyderabad",
     "capacity": "10",
     "color": "pink",

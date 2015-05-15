@@ -11,8 +11,12 @@
              templateUrl: 'slotDetailView.htm',
              controller: 'SlotDetailViewController'
          }).
+         when('/searchRoomsView', {
+             templateUrl: 'searchRoomsView.htm',
+             controller: 'SearchRoomsViewController'
+         }).
          otherwise({
-             redirectTo: '/availablerooms'
+             redirectTo: '/searchRoomsView'
          });
      }
  ]);
@@ -104,4 +108,11 @@
 
      // Changes main content heading
      $rootScope.MainHeading = "Meeting";
+ });
+ 
+ 
+//Displays search landing page
+ mrpApp.controller('SearchRoomsViewController', function($rootScope, $scope, $location, $routeParams) {
+     // Changes main content heading
+     $rootScope.MainHeading = "Search Room";
  });
