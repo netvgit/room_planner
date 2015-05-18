@@ -1,7 +1,9 @@
-        <b>Date :</b><span ng-bind="mrp.searchSlot.date"></span><br>
-		<b>Start Time :</b><span ng-bind="mrp.searchSlot.startTime"></span><br>
-		<b>End Time :</b><span ng-bind="mrp.searchSlot.endTime"></span><br>
-         <div class="row">
+        <div class="query-time">
+        	<b>On </b><span ng-bind="mrp.searchSlot.date" class="orange-color"> </span>
+			<b>From </b><span ng-bind="mrp.searchSlot.startTime" class="orange-color"> </span>
+			<b>Till </b><span ng-bind="mrp.searchSlot.endTime" class="orange-color"> </span>
+		</div>
+         <div class="row rooms-row">
             <div class="col-xs-6 col-lg-4 room-body" ng-repeat="room in mrp.roomsList | filter:mrp.roomsList.search | orderBy:'name'">
             
              <div class="panel panel-primary" ng-click='bookSlot(room.id)'>
@@ -33,14 +35,14 @@
                         <h4 class="modal-title" id="bookSlotModalLabel">Book Slot</h4>
                     </div>
                     <div class="modal-body">
-                       <div class="jumbotron" style="padding: 2px;">
-                        <h4>Meeting Room Details </h4> 
-                        Name: {{room.name}}<br>
-                        Location: <span ng-bind="room.location"></span><br>
-                        Facilities: <span ng-bind="room.facilities"></span><br>
-                        Date: <span ng-bind="mrp.searchSlot.date"></span><br>
-						Start Time: <span ng-bind="mrp.searchSlot.startTime"></span><br>
-						End Time: <span ng-bind="mrp.searchSlot.endTime"></span>
+                       <div class="jumbotron room-detail">
+                         <h4>Meeting Room Details </h4> 
+                         <div><span ng-bind="room.name" class="orange-color"></span><br>
+                        	On <span ng-bind="mrp.searchSlot.date" class="orange-color"></span><br>
+							From <span ng-bind="mrp.searchSlot.startTime" class="orange-color"></span> to <span ng-bind="mrp.searchSlot.endTime" class="orange-color"></span><br>
+                        	<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <span ng-bind="room.location" class="orange-color"></span><br>
+                        	<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> <span ng-bind="room.facilities" class="orange-color"></span>
+                         </div>                        
                        </div>
  
                        <!-- FORM -->

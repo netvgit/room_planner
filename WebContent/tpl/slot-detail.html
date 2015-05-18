@@ -1,14 +1,14 @@
- <div class="panel panel-primary">
+ <div class="panel panel-primary slot-detail">
             <div class="panel-heading">
                 <h3 class="panel-title" ng-bind="slot.name"></h3>                
             </div>
             <div class="panel-body">                
-                <b>Owner: </b><span ng-bind="slot.owner_id"></span><br>
-                <b>Agenda: </b><span ng-bind="slot.agenda"></span><br>
-                <b>Attendees: </b><span ng-bind="slot.attendees"></span><br>
+                <b>Booked by </b><span ng-bind="slot.owner_id"></span><br>
+                <b>Agenda </b><span ng-bind="slot.agenda"></span><br>
                 <b>Date: </b><span ng-bind="slot.date | date:'dd MMM yyyy'"></span><br>
-                <b>Start Time: </b><span ng-bind="slot.start_time | date:'hh:mm a'"></span><br>
-                <b>End Time: </b><span ng-bind="slot.end_time | date:'hh:mm a'"></span><br><br>
+                <b>Time: </b><span ng-bind="slot.start_time | date:'hh:mm a'"></span> - <span ng-bind="slot.end_time | date:'hh:mm a'"></span><br>
+                <b>Attendees: </b><span ng-bind="slot.attendees"></span><br>
+                
                 
                 <div class="jumbotron" style="padding: 2px;">
                         <h4>Venue </h4> 

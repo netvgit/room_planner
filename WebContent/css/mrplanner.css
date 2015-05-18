@@ -1,7 +1,54 @@
-.pull-left{float:left;}
-.pull-right{float:right;}
-.mr-5{margin-right: 5px;}
-.mt-10{margin-top: 10px;}
-.c-p{cursor: pointer;}
-.wd-50{width:50%;}
-body{  background-color: #fff;}
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
+}
+
+.mr-5 {
+	margin-right: 5px;
+}
+
+.mt-10 {
+	margin-top: 10px;
+}
+
+.c-p {
+	cursor: pointer;
+}
+
+.wd-50 {
+	width: 50%;
+}
+
+body {
+	background-color: #fff;
+}
+
+.query-time {
+	background-color: #d1e1e5;
+	font-size: 18px;
+	font-weight: 500;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.orange-color {
+	color: #E86554;
+}
+
+.rooms-row {
+	margin-right: -9px;
+	margin-left: -9px;
+}
+
+.room-detail {
+	padding: 2px;
+	text-align: center;
+	background-color: #d1e1e5;
+}
+
+.slot-detail {
+	width: 50%
+}
