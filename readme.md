@@ -15,9 +15,10 @@
 
 ###Client Side:
 ####BootStrap : 
-        Bootstrap v3.3.4
+        Bootstrap JS v3.2.0
+        Bootstrap CSS v3.2.0
 ####Angular : 
         AngularJS v1.2.9
-        http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js
+        Angular Route v1.2.16
 #### JQuery: 
-        https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+        Jquery 1.11.1

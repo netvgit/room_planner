@@ -1,0 +1,21 @@
+ <div class="panel panel-primary slot-detail">
+            <div class="panel-heading">
+                <h3 class="panel-title" ng-bind="slot.name"></h3>                
+            </div>
+            <div class="panel-body">                
+                <b>Booked by </b><span ng-bind="slot.owner_id"></span><br>
+                <b>Agenda </b><span ng-bind="slot.agenda"></span><br>
+                <b>Date: </b><span ng-bind="slot.date | date:'dd MMM yyyy'"></span><br>
+                <b>Time: </b><span ng-bind="slot.start_time | date:'hh:mm a'"></span> - <span ng-bind="slot.end_time | date:'hh:mm a'"></span><br>
+                <b>Attendees: </b><span ng-bind="slot.attendees"></span><br>
+                
+                
+                <div class="jumbotron" style="padding: 2px;">
+                        <h4>Venue </h4> 
+                        Meeting Room Name: {{room.name}}<br>
+                        Meeting Room Number: {{room.id}}<br>
+                        Location: <span ng-bind="room.location"></span><br>
+                        Facilities: <span ng-bind="room.facilities"></span>
+                </div>
+            </div>
+        </div>

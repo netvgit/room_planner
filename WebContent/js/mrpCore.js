@@ -9,5 +9,13 @@ var AppOperations = {
             if (roomId == roomsJSON[i].id)
                 return roomsJSON[i];
         }
-    }
+    },
+    
+    // Gets slot from json array by slot id
+    getSlot: function(slotId) {
+        for (var i = 0; i < slotsJSON.length; i++) {
+            if (slotId == slotsJSON[i].id)
+                return slotsJSON[i];
+        }
+    }      
 };

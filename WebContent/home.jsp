@@ -6,19 +6,29 @@
   <meta charset="utf-8">
   <title>MR Planner Dashboard</title>
 
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/lib/bootstrap.min.css">
   <link rel="stylesheet" href="css/signin.css">
-  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/mrplanner.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  <script src="js/lib/angular.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js"></script>
+  <link rel="stylesheet" href="css/searchpage.css">  
   
+  <script src="js/lib/jquery.min.js"></script>
+  <script src="js/lib/bootstrap.min.js"></script>
+  <script src="js/lib/angular.min.js"></script>
+  <script src="js/lib/angular-route.js"></script>
+    
   <script src="data/mrpJson.js"></script>
   <script src="js/mrpCore.js"></script>
-  <script src="js/mrpAngular.js"></script>
+  <script src="controllers/mrpAngular.js"></script>
+  <script src="controllers/facility.js"></script>
+  <script src="controllers/location.js"></script>
+  <script src="controllers/profile.js"></script>
+  <script src="controllers/room.js"></script>
+  <script src="controllers/slot.js"></script>
+  <script src="controllers/user.js"></script>
+  <script src="controllers/search-room.js"></script>
   <script src="js/mrpUi.js"></script>
+  <script src="js/searchpage.js"></script>
 </head>
 
 <%
@@ -31,7 +41,7 @@ String userId = session.getAttribute("userid").toString();
 %>
 
 <script language="javascript"> 
-var user_id="<%=userId%>";
+   var user_id="<%=userId%>";
 </script> 
 
 <body ng-controller="MRPController">
@@ -105,29 +115,6 @@ var user_id="<%=userId%>";
         <!-- /#page-content-wrapper -->
 
     </div>
-
-
- <script type="text/ng-template" id="availableroomsView.htm">
-         <div class="row">
-            <div class="col-xs-6 col-lg-4 room-body" ng-repeat="room in mrp.roomsList | filter:mrp.roomsList.search | orderBy:'name'">
-                <div><h1><span class="label label-default">{{room.name}}</span></h1>
-                    <b>Location: </b><span ng-bind="room.location"></span><br>
-                    <b>Capacity: </b><span ng-bind="room.capacity"></span>
-                </div>
-                <div class="room-overlay c-p" ng-click='bookSlot(room.id)'>
-                    <b>Name: </b>{{room.name}}
-                    <br>
-                    <b>Location: </b><span ng-bind="room.location"></span>
-                    <br>
-                    <b>Capacity: </b><span ng-bind="room.capacity"></span>
-                    <br>
-                    <b>Color: </b><span ng-bind="room.color"></span>
-                    <br>
-                    <b>Facilities: </b><span ng-bind="room.facilities"></span>
-                </div>
-            </div>
-        </div>
-</script>
 </body>
 
 </html>

@@ -28,14 +28,12 @@
     <servlet-name>Welcome</servlet-name>
     <url-pattern>/welcome</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>Home</servlet-name>
     <jsp-file>/home.jsp</jsp-file>
-</servlet>
-
-<servlet-mapping>
+  </servlet>
+  <servlet-mapping>
     <servlet-name>Home</servlet-name>
     <url-pattern>/home</url-pattern>
-</servlet-mapping>
+  </servlet-mapping>
 </web-app>

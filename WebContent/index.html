@@ -1,54 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="loginApp">
 <head>
-  <link rel="stylesheet" href="css/lib/bootstrap.min.css">
-  <link rel="stylesheet" href="css/signin.css">
-  <link rel="stylesheet" type="text/css" href="css/mrplanner.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="js/lib/bootstrap.min.js"></script>
-  <script src="js/lib/angular.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js"></script>
-  
   <meta charset="UTF-8">
   <title>Login to MR Planner</title>
-</head>
-<body>    
-     <div class="container">
-
-      <form class="form-signin" method="post" action="login">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        
-        <button class="btn btn-lg btn-default" type="reset">Reset</button>
-        <button class="btn btn-lg btn-primary" type="submit">Sign in</button>        
-        <label class="mt-10">Yet Not Registered!! <a href="reg.jsp">Register Here</a></label>
-        <br>
-        <a data-toggle="modal" data-target="#forgetPasswordModal" class="c-p">Forget Password?</a>
-      </form>
-    </div> <!-- /container -->
+  
+  <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/signin.css">
+  <link rel="stylesheet" href="css/mrplanner.css">
     
-    <!-- Modal -->
-    <div class="modal fade" id="forgetPasswordModal" tabindex="-1" role="dialog" aria-labelledby="forgetPasswordModalLabel" aria-hidden="true">
-  		<div class="modal-dialog">
-    		<div class="modal-content">
-      		<div class="modal-header">
-        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        		<h4 class="modal-title" id="forgetPasswordModalLabel">Forget Your Password?</h4>
-      		</div>
-      		<div class="modal-body">
-      		  <p>Don't Worry! Just fill in your email and we'll help you reset your password.</p>
-      		  <label for="inputEmail" class="sr-only">Email address</label>
-        	  <input name="email" type="email" id="forgetPasswordEmail" class="form-control wd-50" placeholder="Email address" required autofocus>
-      		</div>
-      		<div class="modal-footer">
-        		<button type="button" class="btn btn-default" data-dismiss="modal">Back to Login</button>
-        		<button type="button" class="btn btn-primary">Send Email</button>
-      		</div>
-    	</div>
-  	</div>
-</div>
+  <script src="js/lib/jquery.min.js"></script>
+  <script src="js/lib/bootstrap.min.js"></script>
+  <script src="js/lib/angular.min.js"></script>
+  <script src="js/lib/angular-route.js"></script>
+   
+  <script src="controllers/loginAngular.js"></script> 
+</head>
+<body ng-view>
 </body> 
 </html>
