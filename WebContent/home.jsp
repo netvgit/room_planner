@@ -41,7 +41,7 @@ String userId = session.getAttribute("userid").toString();
 %>
 
 <script language="javascript"> 
-var user_id="<%=userId%>";
+   var user_id="<%=userId%>";
 </script> 
 
 <body ng-controller="MRPController">
