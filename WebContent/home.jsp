@@ -6,20 +6,27 @@
   <meta charset="utf-8">
   <title>MR Planner Dashboard</title>
 
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/lib/bootstrap.min.css">
   <link rel="stylesheet" href="css/signin.css">
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/mrplanner.css">
   <link rel="stylesheet" href="css/searchpage.css">  
   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="js/lib/jquery.min.js"></script>
+  <script src="js/lib/bootstrap.min.js"></script>
   <script src="js/lib/angular.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js"></script>
+  <script src="js/lib/angular-route.js"></script>
     
   <script src="data/mrpJson.js"></script>
   <script src="js/mrpCore.js"></script>
-  <script src="js/mrpAngular.js"></script>
+  <script src="controllers/mrpAngular.js"></script>
+  <script src="controllers/facility.js"></script>
+  <script src="controllers/location.js"></script>
+  <script src="controllers/profile.js"></script>
+  <script src="controllers/room.js"></script>
+  <script src="controllers/slot.js"></script>
+  <script src="controllers/user.js"></script>
+  <script src="controllers/search-room.js"></script>
   <script src="js/mrpUi.js"></script>
   <script src="js/searchpage.js"></script>
 </head>
