@@ -38,17 +38,52 @@ body {
 	color: #E86554;
 }
 
+.sky-color {
+	color: #10B4CA;
+}
+
+.blue-grey {
+	color: #A2B8BF;
+}
+
 .rooms-row {
 	margin-right: -9px;
 	margin-left: -9px;
 }
 
-.room-detail {
-	padding: 2px;
-	text-align: center;
-	background-color: #d1e1e5;
-}
-
 .slot-detail {
 	width: 50%
+}
+
+.details dl {
+	padding: 0px;
+	margin: 0px;
+}
+
+.details dt {
+	width: 33%;
+	font-size: 18px;
+	line-height: 18px;
+	font-weight: 300;
+	display: inline-block;
+	margin: 0;
+	height: 33px;
+	color: #A2B8BF;
+}
+
+.details dd {
+	width: 66%;
+	font-size: 18px;
+	line-height: 18px;
+	font-weight: 300;
+	display: inline-block;
+	margin: 0;
+	height: 33px;
+}
+
+.form-group label {
+	font-size: 18px;
+	font-weight: 300;
+	margin: 0;
+	height: 33px;
 }
