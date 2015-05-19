@@ -114,3 +114,53 @@ var slotsJSON = [{
     "name":"Next step2",
     "attendees":"sdfsd@sdf.sdfs,sdfsd@sdf.sdfs"
 }];
+
+/**
+ * Global object of logged in user.
+ */
+var userJSON = [{
+    "id": 1,
+    "email":"admin@imaginea.com",
+    "password":"admin",
+    "first_name": "Admin",
+    "last_name" : "Admin",
+    "contact_numbers": "1234567890",
+    "role": 1,
+    "notifications": [1,2,3]
+},
+{
+    "id": 2,
+    "email":"admin@admin",
+    "password":"admin",
+    "first_name": "admin",
+    "last_name" : "admin",
+    "contact_numbers": "0987654321",
+    "role": 1,
+    "notifications": [1,2,3]
+},
+{
+    "id": 3,
+    "email":"farahnaj.inamdar@imaginea.com",
+    "password":"admin",
+    "first_name": "Farah",
+    "last_name" : "Inamdar",
+    "contact_numbers": "1234567890",
+    "role": 3,
+    "notifications": [1,2,3]
+}];
+
+/**
+ * Global object of user role.
+ */
+var userRoleJSON = [{
+    "id": 1,
+    "type":"Admin"
+},
+{
+    "id": 2,
+    "type":"Resource Manager"    
+},
+{
+    "id": 3,
+    "type":"Normal User"
+}];

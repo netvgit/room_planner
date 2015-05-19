@@ -15,6 +15,10 @@
              templateUrl: 'tpl/search-rooms.html',
              controller: 'SearchRoomsController'
          }).
+         when('/profile', {
+             templateUrl: 'tpl/profile.html',
+             controller: 'ProfileController'
+         }).
          otherwise({
              redirectTo: '/searchrooms'
          });

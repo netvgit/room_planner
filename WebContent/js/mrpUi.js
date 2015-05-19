@@ -10,5 +10,5 @@ jQuery(function($) {
         e.preventDefault();
         console.log("menu-toggle");
         $("#wrapper").toggleClass("toggled");
-    });
+    });   
 });

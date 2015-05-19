@@ -89,8 +89,8 @@ String userId = session.getAttribute("userid").toString();
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="active" title="Book Room"><a href="#"><span class="glyphicon glyphicon-plus v-img" aria-hidden="true"></span></a></li>
-                <li title="My Profile"><a href="#"><span class="glyphicon glyphicon-user v-img" aria-hidden="true"></span></a></li>
+                <li class="active" title="Book Room"><a href="#searchrooms"><span class="glyphicon glyphicon-plus v-img" aria-hidden="true"></span></a></li>
+                <li title="My Profile"><a href="#profile"><span class="glyphicon glyphicon-user v-img" aria-hidden="true"></span></a></li>
                 <li title="Manage Users"><a href="#"><span class="glyphicon glyphicon-cog v-img" aria-hidden="true"></span></a></li>
                 <li title="Calendar"><a href="#"><span class="glyphicon glyphicon-calendar v-img" aria-hidden="true"></span></a></li>
                 <li title="Modified Filter"><a href="#"><span class="glyphicon glyphicon-filter v-img" aria-hidden="true"></span></a></li>
