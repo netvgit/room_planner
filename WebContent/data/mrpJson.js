@@ -125,7 +125,7 @@ var userJSON = [{
     "first_name": "Admin",
     "last_name" : "Admin",
     "contact_numbers": "1234567890",
-    "role": 1,
+    "role": "Admin",
     "notifications": [1,2,3]
 },
 {
@@ -135,7 +135,7 @@ var userJSON = [{
     "first_name": "admin",
     "last_name" : "admin",
     "contact_numbers": "0987654321",
-    "role": 1,
+    "role": "Admin",
     "notifications": [1,2,3]
 },
 {
@@ -145,7 +145,7 @@ var userJSON = [{
     "first_name": "Farah",
     "last_name" : "Inamdar",
     "contact_numbers": "1234567890",
-    "role": 3,
+    "role": "Normal User",
     "notifications": [1,2,3]
 }];
 

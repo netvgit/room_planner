@@ -14,32 +14,31 @@
 
 				<!-- First Name -->
 				<div class="form-group">
-					<label>First Name</label> <input type="text" name="first_name"
-						class="form-control" ng-model="user.first_name" required>
+					<label>First Name</label> 
+					<input type="text" name="first_name" class="form-control" ng-model="user.first_name" required>
 				</div>
 
 				<!-- Last Name -->
 				<div class="form-group">
-					<label>Last Name</label> <input type="text" name="last_name"
-						class="form-control" ng-model="user.last_name" required>
+					<label>Last Name</label> 
+					<input type="text" name="last_name" class="form-control" ng-model="user.last_name" required>
 				</div>
 
 				<!-- Email -->
 				<div class="form-group">
-					<label>Email</label> <input type="text" name="email"
-						class="form-control" ng-model="user.email">
+					<label>Email</label> 
+					<input type="text" name="email" class="form-control" ng-model="user.email" disabled>
 				</div>
 
 				<!-- User Role -->
 				<div class="form-group">
-					<label>Role</label> <input type="text" name="role"
-						class="form-control" ng-model="user.role">
+					<label>Role</label> 
+					<input type="text" name="role" class="form-control" ng-model="user.role" disabled>
 				</div>
 
 				<div class="pull-right">
-					<button type="button" class="btn btn-primary"
-						ng-click="submitUser(user,profileForm.$valid)">Save</button>
-					<button type="button" class="btn btn-default">Close</button>
+					<button type="button" id="submit-user" class="btn btn-primary" ng-click="submitUser(user,profileForm.$valid)">Save</button>
+					<button type="button" class="btn btn-default" ng-click="goToHome()">Close</button>
 				</div>
 			</form>
 		</div>
@@ -52,21 +51,19 @@
 
 				<!-- Old Password -->
 				<div class="form-group">
-					<label>Old Password</label> <input type="password" name="password"
-						class="form-control" ng-model="user.password" required>
+					<label>Old Password</label> 
+					<input type="password" name="old_password" class="form-control" ng-model="user.old_password" required>
 				</div>
 
 				<!-- New Password -->
 				<div class="form-group">
-					<label>New Password</label> <input type="password"
-						name="newpassword" class="form-control"
-						ng-model="user.newpassword" required>
+					<label>New Password</label> 
+					<input type="password" name="new_password" class="form-control" ng-model="user.new_password" required>
 				</div>
 
 				<div class="pull-right">
-					<button type="button" class="btn btn-primary"
-						ng-click="submitUser(user,changePasswordForm.$valid)">Save</button>
-					<button type="button" class="btn btn-default">Close</button>
+					<button type="button" id="submit-password" class="btn btn-primary" ng-click="submitPassword(user,changePasswordForm.$valid)">Save</button>
+					<button type="button" class="btn btn-default" ng-click="goToHome()">Close</button>
 				</div>
 			</form>
 		</div>
@@ -94,9 +91,8 @@
 					<label><input type="checkbox"> Booking notifications sent one hour before the event [?]</label>
 				</div>
 				<div class="pull-right">
-					<button type="button" class="btn btn-primary"
-						ng-click="submitUser(user,changePasswordForm.$valid)">Save</button>
-					<button type="button" class="btn btn-default">Close</button>
+					<button type="button" id="submit-notifications" class="btn btn-primary" ng-click="submitUser(user,notificationsForm.$valid)">Save</button>
+					<button type="button" class="btn btn-default" ng-click="goToHome()">Close</button>
 				</div>
 			</form>
 		</div>
