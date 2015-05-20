@@ -19,6 +19,10 @@
              templateUrl: 'tpl/profile.html',
              controller: 'ProfileController'
          }).
+         when('/managerooms', {
+             templateUrl: 'tpl/room.html',
+             controller: 'ManageRoomsController'
+         }).
          otherwise({
              redirectTo: '/searchrooms'
          });

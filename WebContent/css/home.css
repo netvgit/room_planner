@@ -3,22 +3,6 @@
  */
 .navbar-left{padding-top: 10px;}
 
-.search-input{
-	float: left;
-    background-color: transparent;
-	margin-left: 15px;
-	border-style: solid;
-	border-width: 0px 0px 1px 0px;
-	height: 30px;
-}
-
-.search-controls{
-	display: inline-flex;
-	width: 70%;
-    background-color: gray;
-	margin-top: 13px;
-	height: 37px;
-}
 
 /*
  * vertical navbar

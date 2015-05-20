@@ -93,7 +93,7 @@ String userId = session.getAttribute("userid").toString();
                 <li title="Manage Users" class="not-admin"><a href="#"><span class="glyphicon glyphicon-cog v-img" aria-hidden="true"></span></a></li>
                 <li title="Calendar"><a href="#"><span class="glyphicon glyphicon-calendar v-img" aria-hidden="true"></span></a></li>
                 <li title="Modified Filter"><a href="#"><span class="glyphicon glyphicon-filter v-img" aria-hidden="true"></span></a></li>
-                <li title="Manage Room" class="not-admin-rm"><a href=""><span class="glyphicon glyphicon-home v-img" aria-hidden="true"></span></a></li>
+                <li title="Manage Room" class="not-admin-rm"><a href="#managerooms"><span class="glyphicon glyphicon-home v-img" aria-hidden="true"></span></a></li>
                 <li title="Manage Facility" class="not-admin-rm"><a href=""><span class="glyphicon glyphicon-briefcase v-img" aria-hidden="true"></span></a></li>
                 <li title="Manage Location" class="not-admin-rm"><a href=""><span class="glyphicon glyphicon-map-marker v-img" aria-hidden="true"></span></a></li>
                 <li title="Logout"><a href="logout.jsp"><span class="glyphicon glyphicon-off v-img" aria-hidden="true"></span></a></li>                

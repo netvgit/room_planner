@@ -1,5 +1,5 @@
-
-<ul class="nav nav-pills" id="profileTab">
+<div>
+<ul class="nav nav-tabs blue-bg-color" id="profileTab">
 	<li class="active"><a data-target="#details" data-toggle="tab">Details</a></li>
 	<li><a data-target="#change-password" data-toggle="tab">Change
 			password</a></li>
@@ -34,15 +34,15 @@
 				<div class="form-group">
 					<label>Role</label> 
 					<input type="text" name="role" class="form-control" ng-model="user.role" title="The role can be changed by administrators" disabled>
-				</div>
-
-				<div class="pull-right">
-					<button type="button" id="submit-user" class="btn btn-primary" ng-click="submitUser(user,profileForm.$valid)">Save</button>
-					<button type="button" class="btn btn-default" ng-click="goToHome()">Close</button>
-				</div>
+				</div>				
 			</form>
 		</div>
-
+		<footer>
+			<div class="pull-right">
+					<button type="button" id="submit-user" class="btn btn-primary" ng-click="submitUser(user,profileForm.$valid)">Save</button>
+					<button type="button" class="btn btn-default" ng-click="goToHome()">Close</button>
+			</div>
+		</footer>
 	</div>
 	<div class="tab-pane" id="change-password">
 		<div class="split-half">
@@ -59,14 +59,15 @@
 				<div class="form-group">
 					<label>New Password</label> 
 					<input type="password" name="new_password" class="form-control" ng-model="user.new_password" required>
-				</div>
-
-				<div class="pull-right">
-					<button type="button" id="submit-password" class="btn btn-primary" ng-click="submitPassword(user,changePasswordForm.$valid)">Save</button>
-					<button type="button" class="btn btn-default" ng-click="goToHome()">Close</button>
-				</div>
+				</div>				
 			</form>
 		</div>
+		<footer>
+		  <div class="pull-right">
+					<button type="button" id="submit-password" class="btn btn-primary" ng-click="submitPassword(user,changePasswordForm.$valid)">Save</button>
+					<button type="button" class="btn btn-default" ng-click="goToHome()">Close</button>
+		  </div>
+		</footer>
 	</div>
 	<div class="tab-pane" id="notifications">
 		<div class="split-half">
@@ -89,12 +90,15 @@
 				</div>
 				<div class="form-group">
 					<label><input type="checkbox" ng-model="user.notifications.6"> Booking notifications sent one hour before the event [?]</label>
-				</div>
-				<div class="pull-right">
-					<button type="button" id="submit-notifications" class="btn btn-primary" ng-click="submitUser(user,notificationsForm.$valid)">Save</button>
-					<button type="button" class="btn btn-default" ng-click="goToHome()">Close</button>
-				</div>
+				</div>				
 			</form>
 		</div>
+		<footer>
+  			<div class="pull-right">
+				<button type="button" id="submit-notifications" class="btn btn-primary" ng-click="submitUser(user,notificationsForm.$valid)">Save</button>
+				<button type="button" class="btn btn-default" ng-click="goToHome()">Close</button>
+  			</div>
+		</footer>
 	</div>
+</div>
 </div>

@@ -35,5 +35,14 @@ var AppOperations = {
 				userJSON[i] = user;
 			}
 		}
+	},
+
+	// Update room
+	updateRoom : function(room) {
+		for (var i = 0; i < roomsJSON.length; i++) {
+			if (room.id == roomsJSON[i].id) {				
+				roomsJSON[i] = room;
+			}
+		}
 	}
 };
