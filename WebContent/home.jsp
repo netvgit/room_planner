@@ -58,12 +58,8 @@ String userId = session.getAttribute("userid").toString();
                 <a class="navbar-brand" href="#">MRPlanner</a>
             </div>
 
-            <div class="collapse navbar-collapse" id="mrp-collapse">
-                <div class="navbar-left">
-                    <input class="search-input" placeholder="Search Meeting..." type="text">
-                    <span class="glyphicon glyphicon-search" aria-hidden="true" style="float: right; align-self: center;"></span>
-                </div>
-                <ul class="nav navbar-nav navbar-right">
+            <div class="collapse navbar-collapse" id="mrp-collapse">                
+                <ul class="nav navbar-nav navbar-right">                    
                     <li>
                         <a href="#" ng-bind="AssignedDate.now() | date:'dd MMM yyyy HH:mm:ss'"></a>
                     </li>
@@ -71,7 +67,7 @@ String userId = session.getAttribute("userid").toString();
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Profile</a></li>
+                            <li><a href="#profile">Profile</a></li>
                             <li><a href="#" id="menu-toggle">Toggle Side Menu</a></li>
                             <li><a href="#">My Meetings</a></li>
                             <li><a href="#">All Meetings</a></li>
@@ -80,6 +76,9 @@ String userId = session.getAttribute("userid").toString();
                         </ul>
                     </li>
                 </ul>
+                <form class="navbar-form navbar-right">
+           			 <input type="text" class="form-control" placeholder="Search Meeting...">
+          		</form>
             </div>
         </div>
     </nav>
@@ -91,12 +90,12 @@ String userId = session.getAttribute("userid").toString();
             <ul class="sidebar-nav">
                 <li class="active" title="Book Room"><a href="#searchrooms"><span class="glyphicon glyphicon-plus v-img" aria-hidden="true"></span></a></li>
                 <li title="My Profile"><a href="#profile"><span class="glyphicon glyphicon-user v-img" aria-hidden="true"></span></a></li>
-                <li title="Manage Users"><a href="#"><span class="glyphicon glyphicon-cog v-img" aria-hidden="true"></span></a></li>
+                <li title="Manage Users" class="not-admin"><a href="#"><span class="glyphicon glyphicon-cog v-img" aria-hidden="true"></span></a></li>
                 <li title="Calendar"><a href="#"><span class="glyphicon glyphicon-calendar v-img" aria-hidden="true"></span></a></li>
                 <li title="Modified Filter"><a href="#"><span class="glyphicon glyphicon-filter v-img" aria-hidden="true"></span></a></li>
-                <li title="Manage Room"><a href=""><span class="glyphicon glyphicon-home v-img" aria-hidden="true"></span></a></li>
-                <li title="Manage Facility"><a href=""><span class="glyphicon glyphicon-briefcase v-img" aria-hidden="true"></span></a></li>
-                <li title="Manage Location"><a href=""><span class="glyphicon glyphicon-map-marker v-img" aria-hidden="true"></span></a></li>
+                <li title="Manage Room" class="not-admin-rm"><a href=""><span class="glyphicon glyphicon-home v-img" aria-hidden="true"></span></a></li>
+                <li title="Manage Facility" class="not-admin-rm"><a href=""><span class="glyphicon glyphicon-briefcase v-img" aria-hidden="true"></span></a></li>
+                <li title="Manage Location" class="not-admin-rm"><a href=""><span class="glyphicon glyphicon-map-marker v-img" aria-hidden="true"></span></a></li>
                 <li title="Logout"><a href="logout.jsp"><span class="glyphicon glyphicon-off v-img" aria-hidden="true"></span></a></li>                
             </ul>
         </div>
@@ -106,7 +105,7 @@ String userId = session.getAttribute("userid").toString();
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="col-lg-12" id="main-content">
-                    <h1 class="page-header" ng-bind="MainHeading"></h1>
+                    <h1 class="page-header orange-color" ng-bind="MainHeading"></h1>
                     <div id="content" ng-view><img src="images/ajax-spinner.gif"></img>
                     </div>
                 </div>

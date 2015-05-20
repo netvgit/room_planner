@@ -126,7 +126,7 @@ var userJSON = [{
     "last_name" : "Admin",
     "contact_numbers": "1234567890",
     "role": "Admin",
-    "notifications": [1,2,3]
+    "notifications": {"1":true,"2":true,"3":true,"4":true,"5":true,"6":true}
 },
 {
     "id": 2,
@@ -135,8 +135,8 @@ var userJSON = [{
     "first_name": "admin",
     "last_name" : "admin",
     "contact_numbers": "0987654321",
-    "role": "Admin",
-    "notifications": [1,2,3]
+    "role": "Resource Manager",
+    "notifications": {"1":true,"2":true,"3":true,"4":true,"5":false,"6":false}
 },
 {
     "id": 3,
@@ -146,7 +146,7 @@ var userJSON = [{
     "last_name" : "Inamdar",
     "contact_numbers": "1234567890",
     "role": "Normal User",
-    "notifications": [1,2,3]
+    "notifications": {"1":true,"2":true,"3":true,"4":false,"5":false,"6":false}
 }];
 
 /**
@@ -163,4 +163,32 @@ var userRoleJSON = [{
 {
     "id": 3,
     "type":"Normal User"
+}];
+
+/**
+ * Global object of notifications.
+ */
+var notificationsJSON = [{
+    "id": 1,
+    "type":"Invite"
+},
+{
+    "id": 2,
+    "type":"Created"    
+},
+{
+    "id": 3,
+    "type":"Changed"
+},
+{
+    "id": 4,
+    "type":"Canceled"
+},
+{
+    "id": 5,
+    "type":"Day"    
+},
+{
+    "id": 6,
+    "type":"Hour"
 }];
