@@ -100,11 +100,11 @@ String userId = session.getAttribute("userid").toString();
             <ul class="sidebar-nav">
                 <li class="active" title="Book Room"><a href="#searchrooms"><span class="glyphicon glyphicon-plus v-img" aria-hidden="true"></span></a></li>
                 <li title="My Profile"><a href="#profile"><span class="glyphicon glyphicon-user v-img" aria-hidden="true"></span></a></li>
-                <li title="Manage Users" class="not-admin"><a href="#"><span class="glyphicon glyphicon-cog v-img" aria-hidden="true"></span></a></li>
+                <li title="Manage Users" class="not-admin"><a href="#manageusers"><span class="glyphicon glyphicon-cog v-img" aria-hidden="true"></span></a></li>
                 <li title="Calendar"><a href="#calendarview"><span class="glyphicon glyphicon-calendar v-img" aria-hidden="true"></span></a></li>                
                 <li title="Manage Room" class="not-admin-rm"><a href="#managerooms"><span class="glyphicon glyphicon-home v-img" aria-hidden="true"></span></a></li>
-                <li title="Manage Facility" class="not-admin-rm"><a href=""><span class="glyphicon glyphicon-briefcase v-img" aria-hidden="true"></span></a></li>
-                <li title="Manage Location" class="not-admin-rm"><a href=""><span class="glyphicon glyphicon-map-marker v-img" aria-hidden="true"></span></a></li>
+                <li title="Manage Facility" class="not-admin-rm"><a href="#managefacilities"><span class="glyphicon glyphicon-briefcase v-img" aria-hidden="true"></span></a></li>
+                <li title="Manage Location" class="not-admin-rm"><a href="#managelocations"><span class="glyphicon glyphicon-map-marker v-img" aria-hidden="true"></span></a></li>
                 <li title="Logout"><a href="logout.jsp"><span class="glyphicon glyphicon-off v-img" aria-hidden="true"></span></a></li>                
             </ul>
         </div>
@@ -114,9 +114,10 @@ String userId = session.getAttribute("userid").toString();
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="col-lg-12" id="main-content">
-                    <h1 class="page-header orange-color" ng-bind="MainHeading"></h1>
+                    <h1 class="page-header orange-color mt-mns-20" ng-bind="MainHeading"></h1>
                     <div id="content" ng-view><img src="images/ajax-spinner.gif"></img>
                     </div>
+                    
                 </div>
             </div>
         </div>

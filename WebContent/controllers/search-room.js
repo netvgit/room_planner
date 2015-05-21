@@ -2,7 +2,6 @@
  mrpApp.controller('SearchRoomsController', function($rootScope, $scope,searchSlotService,calendarService) {
      // Changes main content heading
      $rootScope.MainHeading = "Search Room";
-
      
      // Create empty slot search
      slotSearch = {};

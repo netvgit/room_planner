@@ -44,5 +44,23 @@ var AppOperations = {
 				roomsJSON[i] = room;
 			}
 		}
-	}
+	},
+
+	// Update location
+	updateLocation : function(location) {
+		for (var i = 0; i < locationsJSON.length; i++) {
+			if (location.id == locationsJSON[i].id) {				
+				locationsJSON[i] = location;
+			}
+		}
+	},
+
+	// Update facility
+	updateFacility : function(facility) {
+		for (var i = 0; i < facilitiesJSON.length; i++) {
+			if (facility.id == facilitiesJSON[i].id) {				
+				facilitiesJSON[i] = facility;
+			}
+		}
+	}		
 };

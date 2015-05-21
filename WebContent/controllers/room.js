@@ -67,8 +67,7 @@ mrpApp.controller('AvailableRoomsController', function($rootScope, $scope,
 	};
 });
 
-mrpApp.controller('ManageRoomsController', function($rootScope, $scope,
-		searchSlotService) {
+mrpApp.controller('ManageRoomsController', function($rootScope, $scope) {
 	// Get data
 	$scope.roomsList = roomsJSON;
 
@@ -84,6 +83,7 @@ mrpApp.controller('ManageRoomsController', function($rootScope, $scope,
 		$scope.modal = {};
 		$scope.modal.icon = "glyphicon-plus";
 		$scope.modal.heading = "Add Room";
+		$scope.room = {};
 
 		if (selectedRoom) {
 			$scope.room = selectedRoom;
@@ -135,7 +135,7 @@ mrpApp.controller('ManageRoomsController', function($rootScope, $scope,
 			// Assign new id to new room
 			newRoomObject.id = parseInt(roomsJSON[roomsJSON.length - 1].id) + 1;
 
-			// Add new event in events json array
+			// Add new room in rooms json array
 			roomsJSON[roomsJSON.length] = newRoomObject;
 		}	
 	};

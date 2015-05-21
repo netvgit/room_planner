@@ -27,6 +27,18 @@
              templateUrl: 'tpl/room.html',
              controller: 'ManageRoomsController'
          }).
+         when('/manageusers', {
+             templateUrl: 'tpl/user.html',
+             controller: 'ManageUsersController'
+         }).
+         when('/managelocations', {
+             templateUrl: 'tpl/location.html',
+             controller: 'ManageLocationsController'
+         }).
+         when('/managefacilities', {
+             templateUrl: 'tpl/facility.html',
+             controller: 'ManageFacilitiesController'
+         }).
          otherwise({
              redirectTo: '/searchrooms'
          });

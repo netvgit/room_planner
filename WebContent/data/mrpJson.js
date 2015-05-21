@@ -192,3 +192,64 @@ var notificationsJSON = [{
     "id": 6,
     "type":"Hour"
 }];
+
+/**
+ * Global object of facilities.
+ */
+var facilitiesJSON = [{
+    "id": 1,
+    "type":"AC"
+},
+{
+    "id": 2,
+    "type":"Projector"    
+},
+{
+    "id": 3,
+    "type":"White Board"
+},
+{
+    "id": 4,
+    "type":"Camera"
+},
+{
+    "id": 5,
+    "type":"Phone"    
+}];
+
+/**
+ * Global object of locations.
+ */
+var locationsJSON = [{
+    "id": 1,    
+    "name":"xyz",
+    "floor":1,
+    "building":"B1",
+    "city":"Hyderabad",
+    "state":"Aandra Pradesh",
+    "country":"India",
+    "postal_code":12345,
+    "number_rooms":2
+},
+{
+    "id": 2,
+    "name":"abc",
+    "floor":2,
+    "building":"B2",
+    "city":"Hyderabad",
+    "state":"Aandra Pradesh",
+    "country":"India",
+    "postal_code":45678,
+    "number_rooms":3    
+},
+{
+    "id": 3,
+    "name":"pqr",
+    "floor":3,
+    "building":"B3",
+    "city":"Hyderabad",
+    "state":"Aandra Pradesh",
+    "country":"India",
+    "postal_code":678905,
+    "number_rooms":6
+}];
