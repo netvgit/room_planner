@@ -100,12 +100,12 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `MRoomPlannerDB`.`Slot` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `date` VARCHAR(45) NOT NULL,
-  `start_time` VARCHAR(45) NOT NULL,
-  `end_time` VARCHAR(45) NOT NULL,
+  `start` VARCHAR(45) NOT NULL,
+  `end` VARCHAR(45) NOT NULL,
   `owner_id` INT NOT NULL,
   `room_id` INT NOT NULL,
   `agenda` VARCHAR(45) NULL,
-  `name` VARCHAR(45) NOT NULL,
+  `title` VARCHAR(45) NOT NULL,
   `attendees` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),
   INDEX `room_id_idx` (`room_id` ASC),
@@ -172,6 +172,7 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
 
 INSERT INTO `User_Role` (`type`)
 VALUES ('Admin');

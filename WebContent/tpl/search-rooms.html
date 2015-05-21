@@ -1,103 +1,89 @@
-<div class="container">
-   <form name="searchRoomForm" novalidate id="searchRoomForm">
-			<div class="row">
-				<div class="col-sm-8 col-xs-12 left-column">
-					<div class="row">
-						<div class="col-sm-6">
-							<span>DATE: </span>
-							<div class="form-group">
-				                <div class='input-group'>				           			
-				                    <span class="input-group-addon">
-				                    	<span class="glyphicon glyphicon-calendar"></span>
-				                    </span>
-									<input type='date' class="form-control" name="date" ng-model="slotSearch.date" required/>
-				                </div>
-				            </div>
+<div id="searchRoomContainer">
+	<form name="searchRoomForm" novalidate id="searchRoomForm">
+		<div class="row">
+			<div class="col-sm-6 col-xs-12 left-column">
+				<div class="row">
+					<div class="col-sm-8">
+						<div class="input-group">
+							<span class="input-group-addon">
+				            	<span class="glyphicon glyphicon-calendar"></span>
+				            </span>
+				            <input id="datePickerDate" type="text" class="form-control" datepicker-popup="dd-MMMM-yy" ng-model="slotSearch.date" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" show-weeks = "false"/>
+			            </div>
 					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="form-group">
+							<span> FROM: </span>
+			                <div class=''>				           			
+								<timepicker ng-model="slotSearch.startTime" ng-change="changed()" hour-step="1" minute-step="5" show-meridian="false"></timepicker>
+			                </div>
+			            </div>
 					</div>
-					<div class="row">
-						<div class="col-sm-6">
-							<span>FROM: </span>
-							<div class="form-group">
-				                <div class='input-group'>				           			
-				                    <span class="input-group-addon">
-				                    	<span class="glyphicon glyphicon-time"></span>
-				                    </span>
-									<input type='time' class="form-control" name="startTime" ng-model="slotSearch.startTime" required/>
-				                </div>
-				            </div>
-						</div>
-						<div class="col-sm-6">
+					<div class="col-sm-4">
+						
+						<div class="form-group">
 							<span>TILL: </span>
-							<div class="form-group">
-				                <div class='input-group'>			           			
-				                    <span class="input-group-addon">
-				                    	<span class="glyphicon glyphicon-time"></span>
-				                    </span>
-									<input type='time' class="form-control" name="endTime" ng-model="slotSearch.endTime"/>
-				                </div>
-				            </div>
-						</div>
+			                <div class=''>				           			
+								<timepicker ng-model="slotSearch.endTime" ng-change="changed()" hour-step="1" minute-step="5" show-meridian="false"></timepicker>
+			                </div>
+			            </div>
 					</div>
-
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="input-group">
-								<span class="input-group-addon">
-					            	<span class="glyphicon glyphicon-user"></span>
-					            </span>
-					            <input type='text' type="number" class="form-control" placeholder="No of attendees"/>
-				            </div>
-						</div>
-						<div class="col-sm-6">
-							<div class="input-group" id="select-div">
-					            <span class="input-group-addon">
-					            	<span class="glyphicon glyphicon-map-marker"></span>
-					            </span>
-					            <select class="form-control" id="sel1">
-					              <option>Hyderabad</option>
-					              <option>Banglore</option>
-					              <option>Chennai</option>
-					              <option>United States</option>
-					            </select>
-					            <br>
-				            </div>
-						</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-8">
+						<div class="input-group">
+							<span class="input-group-addon">
+				            	<span class="glyphicon glyphicon-user"></span>
+				            </span>
+				            <input type='text' type="number" class="form-control" placeholder="No of attendees"/>
+			            </div>
 					</div>
-					<div class="row">
-						<div class="col-sm-6 checkbox">
-						    <label>
-						      <input type="checkbox"> Recurring
-						    </label>
-						</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-8">
+						<div class="input-group" id="select-div">
+					        <span class="input-group-addon">
+					   	    	<span class="glyphicon glyphicon-map-marker"></span>
+					        </span>
+				            <select class="form-control" id="sel1">
+				            	<option>Hyderabad</option>
+					            <option>Banglore</option>
+					            <option>Chennai</option>
+					            <option>United States</option>
+					        </select>
+					        <br>
+				        </div>
 					</div>
-					<div class="row">
-						<div>
-							<button class="btn btn-inverse" type="button" id="submit-button" ng-click="submitSearch(slotSearch, searchRoomForm.$valid)">Submit</button>
-						</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-8 checkbox">
+					    <label>
+					      <input type="checkbox"> Recurring
+					    </label>
 					</div>
-
+				</div>
+				<div class="row">
+					<div>
+						<button class="btn btn-primary" type="button" id="submit-button" ng-click="submitSearch(slotSearch, searchRoomForm.$valid)">Submit</button>
+					</div>
+				</div>
 				</div> <!-- Datetimepicker, other input fields --> 
 
-				<div class="col-sm-4" id="filters-column">
-					<!-- <button id="toggle-filter"><span>F</span></button> -->
-					<button id="toggle-filter">
-				        <span class="glyphicon glypgicon-user">F</span>
-			        </button>
-					<div>
-						<h3 class="text-center">Facilities Required</h3>
-			            <div style="overflow: auto;">
-			            	<ul id="check-list-box" class="list-group checked-list-box">
-			                  <li class="list-group-item">Air Conditioner</li>
-			                  <li class="list-group-item">Projector</li>
-			                  <li class="list-group-item">White Board</li>
-			                  <li class="list-group-item">Telephones</li>
-			                  <li class="list-group-item">Speaker</li>
-			                </ul>
-			                <br />
-			            </div>
-		            </div>
-				</div> <!-- Filters Column -->
-			</div><!-- Main Row division -->
-			</form>
+			<div class="col-sm-6" id="filters-column">
+				<!-- <button id="toggle-filter"><span>F</span></button> -->
+				<button id="toggle-filter">
+			        <span class="glyphicon glypgicon-user">F</span>
+			       </button>
+				<div id = "facilitiesDiv">
+					<h3 class="text-left">Facilities Required</h3>
+			           <div ng-repeat="facility in facilities" class="checkBoxList">
+			               <input type="checkbox" ng-model="facility.value">
+			               <span>{{facility.name}}</span>
+			           </div>
+		        </div>
+			</div> <!-- Filters Column -->
+		</div><!-- Main Row division -->
+	</form>
 </div>

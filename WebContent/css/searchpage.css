@@ -1,5 +1,24 @@
-		#searchRoomForm .left-column{
-            border-right: 1px dashed #e0e0e0;
+		#searchRoomContainer{
+			padding-top:20px;
+            position: relative;
+            width: 100%;
+        }
+
+        #searchRoomForm .dropdown-menu li:last-child{
+            display: none;
+        }
+
+        #searchRoomForm .dropdown-menu li table thead tr:first-child{
+            margin-bottom: 10px;
+        }
+
+
+        #searchRoomForm .dropdown-menu{
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        #searchRoomForm .left-column{
+            border-right: 1px solid #e0e0e0;
             
          }
 
@@ -9,64 +28,79 @@
          }
 
          #searchRoomForm #submit-button{
-            width: 50%;
+            width: 80%;
             display: block;
             margin: auto;
          }
 
          #searchRoomForm #select-div{
             width: 100%;
-         }
-
-      
-
-         /* CSS REQUIRED */
-         .state-icon {
-             left: -5px;
-         }
-
-         #toggle-filter{
-            height: 40px;
-            width: 40px;
-            position: relative;
-            top: 0;
-            left: -55px;
-      
-         }
+         }   
 
          @media only screen and (max-width : 767px) {
-            #filters-column{
-                 position:fixed;
-                 float:right;
-                 width: 250px;
-                 height: 100%;
-                 right: -250px;
-               top:40px;
-                 padding-right: 0px;
-                 background-color: #e0e0e0;
-            z-index:99;
-           }
-
-           #select-div{
-            margin-top: 20px;
-           }
-           
-           #toggle-filter{
-            display:block;
-             position:relative;
-             top: 0px;
-             left:-55px; 
-           }
-                 
+			 	/* TOGGLE STATE*/
+	         #filters-column{
+	         position:fixed;
+	         right:-350px;;
+	         top:50px;
+	         width:350px;
+	         height:100%;
+	         background-color: rgba(0,0,0,0.85);
+	         border: 1px solid #303030;
+	         border-radius:5px;
+	         z-index:10000;
+	         padding-left : 0px;
+	         }
+	         
+	         #filters-column h3{
+	         text-shadow: 0.7px 0.7px #f0f0f0;
+	         }
+	         
+	         #filters-column h3{
+	         color: white;
+	         }
+	         
+	         #filters-column span{
+	         color: white;
+	         }
+	         
+	         #filters-column #toggle-filter{
+	         display:block;
+	         position:relative;
+	         top:0;
+	         left:-40px;;
+	         height:40px;
+	         width: 40px;
+	         
+	         }
+	
+	         #filters-column #facilitiesDiv{
+	         padding-left : 15px;
+	         }                
          }
 
          @media only screen and (min-width : 767px){
-            #filters-column{
-               position:static;
-               }
-
-            #toggle-filter{
-               display:none;
-               position:static;
-               }
+         	#filters-column{
+	         margin-left: 20px;
+	         padding-top: 20px;
+	         width:350px;
+	         }
+	         
+	         #filters-column #toggle-filter{
+	         display:none;
+	         }
+	         
+	         #filters-column #facilitiesDiv{
+	         padding-left : 0px;
+	         }
          }
+
+
+#facilitiesDiv .checkBoxList{
+    margin: 10px;
+    font-size: 15px;
+}
+
+#facilitiesDiv h3{
+    margin-bottom: 20px;
+}
