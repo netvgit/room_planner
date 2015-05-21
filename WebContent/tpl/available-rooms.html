@@ -1,8 +1,8 @@
 <div class="mt-40">
         <div class="query-time">
-        	<b>On </b><span ng-bind="mrp.searchSlot.date" class="orange-color"> </span>
-			<b>From </b><span ng-bind="mrp.searchSlot.startTime" class="orange-color"> </span>
-			<b>Till </b><span ng-bind="mrp.searchSlot.endTime" class="orange-color"> </span>
+        	<b>On </b><span ng-bind="mrp.searchSlot.date | date:'dd MMM yyyy'" class="orange-color"> </span>
+			<b>From </b><span ng-bind="mrp.searchSlot.startTime | date:'hh:mm a'" class="orange-color"> </span>
+			<b>Till </b><span ng-bind="mrp.searchSlot.endTime | date:'hh:mm a'" class="orange-color"> </span>
 		</div>
          <div class="row rooms-row">
             <div class="col-xs-6 col-lg-4 room-body" ng-repeat="room in mrp.roomsList | filter:mrp.roomsList.search | orderBy:'name'">
@@ -40,8 +40,8 @@
                        <div class="details">                         
                          <dl>
                             <dt>Room </dt><dd ng-bind="room.name" class="sky-color"></dd><br>
-                        	<dt>Date</dt><dd ng-bind="mrp.searchSlot.date"></dd><br>
-							<dt>Time</dt><dd><span ng-bind="mrp.searchSlot.startTime"></span> to <span ng-bind="mrp.searchSlot.endTime"></span></dd><br>
+                        	<dt>Date</dt><dd ng-bind="mrp.searchSlot.date | date:'dd MMM yyyy'"></dd><br>
+							<dt>Time</dt><dd><span ng-bind="mrp.searchSlot.startTime | date:'hh:mm a'"></span> to <span ng-bind="mrp.searchSlot.endTime | date:'hh:mm a'"></span></dd><br>
                         	<dt>Location</dt><dd ng-bind="room.location" class="sky-color"></dd><br>
                         	<dt>Facilities</dt><dd ng-bind="room.facilities"></dd>
                          </dl>                        
@@ -52,8 +52,8 @@
 
         				    <!--Meeting NAME -->
         					<div class="form-group">
-            	               <label>Meeting Name</label> 
-                               <input type="text" name="name" class="form-control" ng-model="slot.name" required>
+            	               <label>Meeting Title</label> 
+                               <input type="text" name="title" class="form-control" ng-model="slot.title" required>
                             </div>
 
         					<!-- Agenda -->

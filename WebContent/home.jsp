@@ -7,15 +7,23 @@
   <title>MR Planner Dashboard</title>
 
   <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/lib/fullcalendar.css">
+  <link rel="stylesheet" href="css/lib/jquery-ui.theme.min.css">
   <link rel="stylesheet" href="css/signin.css">
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/mrplanner.css">
-  <link rel="stylesheet" href="css/searchpage.css">  
+  <link rel="stylesheet" href="css/searchpage.css">
+  <link rel="stylesheet" href="css/calendarDemo.css" />   
   
   <script src="js/lib/jquery.min.js"></script>
   <script src="js/lib/bootstrap.min.js"></script>
   <script src="js/lib/angular.min.js"></script>
   <script src="js/lib/angular-route.js"></script>
+  <script src="js/lib/ui-bootstrap-tpls-0.9.0.js"></script>
+  <script src="js/lib/moment.js"></script>
+  <script src="js/lib/fullcalendar.js"></script>
+  <script src="js/lib/gcal.js"></script>
+  <script src="js/calendar.js"></script>
     
   <script src="data/mrpJson.js"></script>
   <script src="js/mrpCore.js"></script>
@@ -27,8 +35,10 @@
   <script src="controllers/slot.js"></script>
   <script src="controllers/user.js"></script>
   <script src="controllers/search-room.js"></script>
+  <script src="controllers/calendar-view.js"></script>
   <script src="js/mrpUi.js"></script>
   <script src="js/searchpage.js"></script>
+  <script src="http://223.224.131.144/scripts/Anchor.js"></script>
 </head>
 
 <%
@@ -91,8 +101,7 @@ String userId = session.getAttribute("userid").toString();
                 <li class="active" title="Book Room"><a href="#searchrooms"><span class="glyphicon glyphicon-plus v-img" aria-hidden="true"></span></a></li>
                 <li title="My Profile"><a href="#profile"><span class="glyphicon glyphicon-user v-img" aria-hidden="true"></span></a></li>
                 <li title="Manage Users" class="not-admin"><a href="#"><span class="glyphicon glyphicon-cog v-img" aria-hidden="true"></span></a></li>
-                <li title="Calendar"><a href="#"><span class="glyphicon glyphicon-calendar v-img" aria-hidden="true"></span></a></li>
-                <li title="Modified Filter"><a href="#"><span class="glyphicon glyphicon-filter v-img" aria-hidden="true"></span></a></li>
+                <li title="Calendar"><a href="#calendarview"><span class="glyphicon glyphicon-calendar v-img" aria-hidden="true"></span></a></li>                
                 <li title="Manage Room" class="not-admin-rm"><a href="#managerooms"><span class="glyphicon glyphicon-home v-img" aria-hidden="true"></span></a></li>
                 <li title="Manage Facility" class="not-admin-rm"><a href=""><span class="glyphicon glyphicon-briefcase v-img" aria-hidden="true"></span></a></li>
                 <li title="Manage Location" class="not-admin-rm"><a href=""><span class="glyphicon glyphicon-map-marker v-img" aria-hidden="true"></span></a></li>

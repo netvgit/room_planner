@@ -1,4 +1,4 @@
- var mrpApp = angular.module("mrpApp", ['ngRoute']);
+ var mrpApp = angular.module("mrpApp", ['ui.calendar','ui.bootstrap','ngRoute']);
 
  mrpApp.config(['$routeProvider',
      function($routeProvider) {
@@ -18,6 +18,10 @@
          when('/profile', {
              templateUrl: 'tpl/profile.html',
              controller: 'ProfileController'
+         }).
+         when('/calendarview', {
+             templateUrl: 'tpl/calendar-view.html',
+             controller: 'CalendarViewController'
          }).
          when('/managerooms', {
              templateUrl: 'tpl/room.html',
@@ -43,6 +47,13 @@
 	  return {
 	    dataObj: _dataObj
 	  };
+});
+ 
+ mrpApp.factory('calendarService',function(){
+	    var _dateObj={};
+	    return {
+	        dateObj: _dateObj
+	    };
 });
 
  // Global action like add event, display profile name

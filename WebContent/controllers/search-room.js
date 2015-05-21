@@ -1,30 +1,49 @@
 //Displays search landing page
- mrpApp.controller('SearchRoomsController', function($rootScope, $scope,searchSlotService) {
+ mrpApp.controller('SearchRoomsController', function($rootScope, $scope,searchSlotService,calendarService) {
      // Changes main content heading
      $rootScope.MainHeading = "Search Room";
+
      
      // Create empty slot search
      slotSearch = {};
+     var showDate = new Date();
      
-     // Set current date
-     var date = new Date();
-     var day = date.getDate();
-     var monthIndex = date.getMonth();
-     var year = date.getFullYear();
-     slotSearch.date = year + '-' + ((monthIndex < 10) ? ("0" + monthIndex) : monthIndex) + '-' + ((day < 10) ? ("0" + day) : day);
-
-     // Set current time
-     var hr = date.getHours();
-     var min = date.getMinutes();
-     slotSearch.startTime = ((hr < 10) ? ("0" + hr) : hr) + ':' + ((min < 10) ? ("0" + min) : min);
+   
+     slotSearch.date  = new Date();
+     
+     slotSearch.startTime = new Date();
+     
+     if(calendarService.dateObj.fromView != undefined){
+		 showDate.setMonth(calendarService.dateObj.dateClicked._d.getMonth());
+		 showDate.setDate(calendarService.dateObj.dateClicked._d.getDate());
+		 showDate.setFullYear(calendarService.dateObj.dateClicked._d.getFullYear());
+		 
+    	 if(calendarService.dateObj.fromView == "month"){
+    		 slotSearch.date = showDate;
+    	 }
+    	 else {
+    		 slotSearch.date =  showDate;
+    		 alert("dateclicked: " + calendarService.dateObj.dateClicked);
+    		 showDate.setHours(calendarService.dateObj.dateClicked._d.getHours());
+    		 showDate.setMinutes(calendarService.dateObj.dateClicked._d.getMinutes());
+    		 alert( "resultDate :" +showDate);
+    		 slotSearch.startTime =  showDate;
+    	 }
+     }
      
      // Set current time
-     var hr = date.getHours();
-     var min = date.getMinutes();
-     slotSearch.endTime = ((hr < 10) ? ("0" + hr) : hr) + ':' + ((min < 10) ? ("0" + min) : min);
+     // var hr = date.getHours();
+     // var min = date.getMinutes();
+     //slotSearch.endTime = ((hr < 10) ? ("0" + hr) : hr) + ':' + ((min < 10) ? ("0" + min) : min);
+     slotSearch.endTime = new Date();
+     slotSearch.endTime.setMinutes(slotSearch.startTime.getMinutes() + 30);
     
      $scope.slotSearch = slotSearch;
-    
+     
+     $scope.facilities = [{value : true, name : "Air Conditioner"},
+                        {value : true , name : "Projector"},
+                        {value : true , name : "Video Conferencing"},
+                        {value : true , name : "Blah Blah"}];
      
      // Submit search details to find room
      $scope.submitSearch = function(slotSearch, isValid) {

@@ -1,0 +1,60 @@
+/*** Docs ***/
+body {
+	margin-top: 40px;
+}
+section {
+	padding-top: 40px;
+}
+
+/*** Calendar ***/
+
+.calAlert{
+	width: 595px; float: right; margin-bottom: 5px;
+}
+
+.calXBtn{
+	float: right; margin-top: -5px; margin-right: -5px;
+}
+
+.calWell{
+	float: left; margin-bottom: 40px;
+}
+
+.fc-event.openSesame .fc-event-skin{
+	background-color: rgb(229, 229, 11);
+	color: black;
+}
+
+.fc-event.customFeed .fc-event-skin{
+	background-color: rgb(132, 222, 175);
+	color: black;
+}
+
+.calTools{
+	margin-bottom: 10px;
+}
+
+#directives-calendar .btn-toolbar{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.icon-span{
+	margin-right: 10px;
+}
+
+.label-span{
+	margin-right: 40px;
+	vertical-align: center;
+	line-height: 10px;
+}
+
+.to-time{
+	float: left;
+	margin-top: -10px;
+}
+
+.till-time{
+	float: right;
+	margin-top: -10px;
+}

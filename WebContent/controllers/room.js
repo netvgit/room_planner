@@ -49,15 +49,15 @@ mrpApp.controller('AvailableRoomsController', function($rootScope, $scope,
 
 		// Assign owner id
 		slot.owner_id = user_id;
-
-		// Assign start time
+		
+		// Assign date
 		slot.date = $scope.mrp.searchSlot.date;
 
 		// Assign start time
-		slot.start_time = $scope.mrp.searchSlot.startTime;
+		slot.start = $scope.mrp.searchSlot.startTime;
 
 		// Assign end time
-		slot.end_time = $scope.mrp.searchSlot.endTime;
+		slot.end = $scope.mrp.searchSlot.endTime;
 
 		// Add new event in events json array
 		slotsJSON[slotsJSON.length] = slot;

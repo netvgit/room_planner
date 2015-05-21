@@ -1,14 +1,14 @@
 <div class="mt-40">
  <div class="panel panel-primary slot-detail">
             <div class="panel-heading">
-                <h3 class="panel-title" ng-bind="slot.name" style="font-size: 24px;"></h3>                
+                <h3 class="panel-title" ng-bind="slot.title" style="font-size: 24px;"></h3>                
             </div>
             <div class="panel-body details">                
                 <dl>
                   <dt>Booked by </dt><dd ng-bind="slot.owner_id"></dd>
                   <dt>Agenda </dt><dd ng-bind="slot.agenda"></dd>
                   <dt>Date </dt><dd ng-bind="slot.date | date:'dd MMM yyyy'"></dd>
-                  <dt>Time </dt><dd><span ng-bind="slot.start_time | date:'hh:mm a'"></span> - <span ng-bind="slot.end_time | date:'hh:mm a'"></span></dd>
+                  <dt>Time </dt><dd><span ng-bind="slot.start | date:'hh:mm a'"></span> - <span ng-bind="slot.end | date:'hh:mm a'"></span></dd>
                   <dt>Attendees </dt><dd ng-bind="slot.attendees"></dd>                
                 </dl>
                 

@@ -90,28 +90,28 @@ var roomsJSON = [{
 
 /**
  * Global object of slots in array.
- * Date : yyyy-MM-dd
+ * Date : yyyy-dd-MM
  */
 
 var slotsJSON = [{
     "id": 1,
     "room_id": 1,
     "owner_id" : "admin",
-    "date": "2015-01-12",
-    "start_time": "10:00 AM",
-    "end_time": "11:00 AM",
+    "date":'2015-05-05',
+    "start": new Date("2015-05-05 10:00 AM"),
+    "end": new Date("2015-05-05 11:00 AM"),
     "agenda":"Next step1",
-    "name":"Next step1",
+    "title":"Next step1",
     "attendees":"sdfsd@sdf.sdfs,sdfsd@sdf.sdfs"
 }, {
     "id": 2,
     "room_id": 3,
     "owner_id" : "admin",
-    "date": "2015-02-12",
-    "start_time": "10:00 AM",
-    "end_time": "11:00 AM",
+    "date":'2015-05-15',
+    "start": new Date("2015-05-15 10:00 AM"),
+    "end": new Date("2015-05-15 11:00 AM"),
     "agenda":"Next step2",
-    "name":"Next step2",
+    "title":"Next step2",
     "attendees":"sdfsd@sdf.sdfs,sdfsd@sdf.sdfs"
 }];
 
