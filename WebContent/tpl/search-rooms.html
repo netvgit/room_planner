@@ -71,19 +71,19 @@
 				</div>
 				</div> <!-- Datetimepicker, other input fields --> 
 
-				<div class="col-sm-6" id="filters-column">
-					<!-- <button id="toggle-filter"><span>F</span></button> -->
-					<button id="toggle-filter">
-				        <span class="glyphicon glypgicon-user">F</span>
-			        </button>
-					<div id = "facilitiesDiv">
-						<h3 class="text-left">Facilities Required</h3>
-			            <div ng-repeat="facility in facilities" class="checkBoxList">
-			                <input type="checkbox" ng-model="facility.value">
-			                <span>{{facility.name}}</span>
-			            </div>
-		            </div>
-				</div> <!-- Filters Column -->
-			</div><!-- Main Row division -->
-			</form>
+			<div class="col-sm-6" id="filters-column">
+				<!-- <button id="toggle-filter"><span>F</span></button> -->
+				<button id="toggle-filter">
+			        <span class="glyphicon glypgicon-user">F</span>
+			       </button>
+				<div id = "facilitiesDiv">
+					<h3 class="text-left">Facilities Required</h3>
+			           <div ng-repeat="facility in facilities" class="checkBoxList">
+			               <input type="checkbox" ng-model="facility.value">
+			               <span>{{facility.name}}</span>
+			           </div>
+		        </div>
+			</div> <!-- Filters Column -->
+		</div><!-- Main Row division -->
+	</form>
 </div>
