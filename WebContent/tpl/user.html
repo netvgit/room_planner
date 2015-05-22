@@ -45,7 +45,7 @@
 			<div class="modal-body">
 			
 				<!-- FORM -->
-				<form name="addUserForm" id="addUserForm" novalidate>
+				<form class="mrp-from" name="addUserForm" id="addUserForm" novalidate>
 
                     <input type="hidden" name="id" class="form-control" value="{{user.id}}">
 
@@ -70,14 +70,16 @@
 
 					<!-- Contact Number -->
 					<div class="form-group">
-						<label>Contact Number</label> 
+						<label>Contact</label> 
 						<input type="text" name="contact_numbers" class="form-control" value="{{user.contact_numbers}}">
 					</div>
 					
 					<!-- Role -->
 					<div class="form-group">
-						<label>User Role</label> 
-						<input type="text" name="role" class="form-control" value="{{user.role}}">
+						<label>User Role</label>						
+						<select id="role" name="role" value="{{user.role}}" class="form-control">
+    						<option ng-repeat="role in userRoleList" value="{{role.type}}">{{role.type}}</option>
+ 						</select>
 					</div>					
 				</form>
 

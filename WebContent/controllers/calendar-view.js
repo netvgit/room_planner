@@ -120,7 +120,6 @@ mrpApp.controller('CalendarViewController', function($rootScope, $scope,$compile
         height: 450,
         editable: true,
         theme:false,
-        ignoreTimezone: false,
         header:{
           left: 'title',
           center: '',

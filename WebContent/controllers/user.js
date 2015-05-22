@@ -1,6 +1,7 @@
 mrpApp.controller('ManageUsersController', function($rootScope, $scope) {
 	// Get data
 	$scope.userList = userJSON;
+	$scope.userRoleList = userRoleJSON;
 
 	// Changes main content heading
 	$rootScope.MainHeading = "Manage Users";
@@ -24,6 +25,9 @@ mrpApp.controller('ManageUsersController', function($rootScope, $scope) {
 
 		// Show modal
 		$jQ('#addUserModal').modal('show');
+		
+		// Select user role in form
+		$jQ("#role").val($scope.user.role);
 	};
 
 	// After modifications or filling new details will save user
@@ -54,6 +58,15 @@ mrpApp.controller('ManageUsersController', function($rootScope, $scope) {
 		document.getElementById("addUserForm").reset();
 
 		if (newUserObject.id) {
+			
+			// If current user is updated so check email id and change that too
+			if(user_id === $scope.user.email && $scope.user.email !== newUserObject.email)
+				user_id =  newUserObject.email;				
+			
+			// Get notifications details
+			newUserObject.notifications = $scope.user.notifications;
+			
+			//Update user
 			AppOperations.updateUser(newUserObject);
 		} else {
 			// Create new user json

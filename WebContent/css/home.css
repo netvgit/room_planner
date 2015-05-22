@@ -20,23 +20,10 @@
     padding-top: 60px;
 	margin-left: 90px;
 }
-
-
 @media (min-width: 768px) {
   .main-content {
     padding-right: 40px;
     padding-left: 40px;
-  }
-}
-@media (max-width: 768px) {
-  
-  .main-content {
-    padding-right: 0px;
-    padding-left: 0px;
-  }
-  .container-fluid{
-  	padding-right : 0px;
-  	padding-left : 0px;
   }
 }
 
@@ -166,10 +153,6 @@
         margin-right: 0;
     }
 }
-
-
-
-
 
 /* Overlay Up */
 .room-body{
