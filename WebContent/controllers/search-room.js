@@ -61,4 +61,25 @@
          // Show slot in slot detail view
          window.location = '#/availablerooms';
      };
+     
+     
+     
+    toggle = 0;
+ 	$jQ('#toggle-filter').click(function(e) {
+ 		e.preventDefault();
+ 		if (toggle == 0) {
+ 			$jQ('#filters-column').animate({
+ 				'right' : '0px'
+ 			});
+ 			toggle = 1;
+ 			return;
+ 		}
+
+ 		else {
+ 			$jQ('#filters-column').animate({
+ 				'right' : '-350px'
+ 			});
+ 			toggle = 0;
+ 			return;
+ 		}});
  });

@@ -81,6 +81,8 @@
 
          @media only screen and (min-width : 767px){
          	#filters-column{
+         	 position:relative;
+         	 left: 0px;
 	         margin-left: 20px;
 	         padding-top: 20px;
 	         width:350px;
