@@ -19,4 +19,5 @@ jQuery(function($) {
 		console.log("menu-toggle");
 		$("#wrapper").toggleClass("toggled");
 	});
+	
 });
