@@ -108,17 +108,17 @@ body {
 	height: 33px;
 }
 
-.mrp-from label {
+.mrp-form label {
 	display: inline;
 }
 
-.mrp-from input, .mrp-from select {
+.mrp-form input, .mrp-form select {
 	display: inline;
 	float: right;
 	width: 80%;
 }
 
-.mrp-from .form-group {
+.mrp-form .form-group {
 	margin-bottom: 25px;
 }
 
