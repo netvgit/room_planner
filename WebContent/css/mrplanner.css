@@ -73,8 +73,7 @@ body {
 
 .slot-detail {
 	width: 50%
-}
-
+} 
 .details dl {
 	padding: 0px;
 	margin: 0px;
@@ -99,6 +98,7 @@ body {
 	display: inline-block;
 	margin: 0;
 	height: 33px;
+	float: right;
 }
 
 .form-group label {
@@ -106,6 +106,20 @@ body {
 	font-weight: 300;
 	margin: 0;
 	height: 33px;
+}
+
+.mrp-form label {
+	display: inline;
+}
+
+.mrp-form input, .mrp-form select {
+	display: inline;
+	float: right;
+	width: 80%;
+}
+
+.mrp-form .form-group {
+	margin-bottom: 25px;
 }
 
 .split-half {
@@ -116,4 +130,24 @@ body {
 
 #content {
 	margin-top: -20px;
+}
+
+@media ( max-width : 768px) {
+	.details dt {
+		font-size: 14px;
+		line-height: 15px;
+		margin: 0;
+	}
+	.details dd {
+		font-size: 14px;
+		line-height: 15px;
+		margin: -10;
+		height: 20px;
+	}
+	.form-group label {
+		font-size: 14px;
+		font-weight: 300;
+		margin: 0;
+		height: 20px;
+	}
 }

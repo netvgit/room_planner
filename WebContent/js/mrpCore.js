@@ -31,7 +31,7 @@ var AppOperations = {
 	// Update user
 	updateUser : function(user) {
 		for (var i = 0; i < userJSON.length; i++) {
-			if (user.email == userJSON[i].email) {				
+			if (user.id == userJSON[i].id) {				
 				userJSON[i] = user;
 			}
 		}

@@ -1,11 +1,13 @@
 <div class="mt-40">
-        <div class="query-time">
-        	<b>On </b><span ng-bind="mrp.searchSlot.date | date:'dd MMM yyyy'" class="orange-color"> </span>
-			<b>From </b><span ng-bind="mrp.searchSlot.startTime | date:'hh:mm a'" class="orange-color"> </span>
-			<b>Till </b><span ng-bind="mrp.searchSlot.endTime | date:'hh:mm a'" class="orange-color"> </span>
+         <div class="well">
+        	<em>On: &nbsp;</em><span ng-bind="mrp.searchSlot.date | date:'dd MMM yyyy'"></span>
+        	<br>
+			<em>From: &nbsp;</em><span ng-bind="mrp.searchSlot.startTime | date:'hh:mm a'"></span>
+			<br>
+			<em>Till: &nbsp;</em><span ng-bind="mrp.searchSlot.endTime | date:'hh:mm a'"></span>
 		</div>
          <div class="row rooms-row">
-            <div class="col-xs-6 col-lg-4 room-body" ng-repeat="room in mrp.roomsList | filter:mrp.roomsList.search | orderBy:'name'">
+            <div class="col-xs-12 col-sm-6 col-lg-4 room-body" ng-repeat="room in mrp.roomsList | filter:mrp.roomsList.search | orderBy:'name'">
             
              <div class="panel panel-primary" ng-click='bookSlot(room.id)'>
             	<div class="panel-heading">
@@ -48,7 +50,7 @@
                        </div>
  
                        <!-- FORM -->
-                       <form name="slotForm" novalidate>
+                       <form class="mrp-form" name="slotForm" novalidate>
 
         				    <!--Meeting NAME -->
         					<div class="form-group">
