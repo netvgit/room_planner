@@ -2,20 +2,20 @@
 <table class="table table-hover">
 	<thead class="blue-bg-color">
 		<tr>
-		    <th><input type="checkbox"></th>
+		    <th><input id="check-all" type="checkbox" ng-click="checkAll()"></th>
 			<th>Type</th>			
 		</tr>
 	</thead>
 	<tbody>
-		<tr	ng-repeat="facility in facilitiesList | orderBy:'type'" ng-click="addFacility(facility)">
-		    <td><input type="checkbox" ng-model="facility.id"></td>
-			<td ng-bind="facility.type"></td>
+		<tr class="c-p"	ng-repeat="facility in facilitiesList | orderBy:'type'">
+		    <td><input type="checkbox" checklist-model="selected.facilitiesList" checklist-value="facility.id"></td>
+			<td ng-bind="facility.type" ng-click="addFacility(facility)"></td>
 		</tr>
 	</tbody>
 </table>
 </div>
 <footer>
-    <button type="button" class="btn btn-default" ng-click="deleteFacilities()">Delete</button>
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#confirmationModal">Delete</button>
 	<button type="button" class="btn btn-primary pull-right" ng-click="addFacility()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Facility</button>		
 </footer>
 
@@ -56,3 +56,22 @@
 		</div>
 	</div>
 </div>
+
+<!-- Modal -->
+        <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="confirmationModalLabel">Confirmation to delete facilities</h4>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete selected facilities?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" ng-click="deleteFacilities()">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>

@@ -2,7 +2,7 @@
 <table class="table table-hover">
 	<thead class="blue-bg-color">
 		<tr>
-		    <th><input type="checkbox"></th>
+		    <th><input id="check-all" type="checkbox" ng-click="checkAll()"></th>
 			<th>First Name</th>
 			<th>Last Name</th>
 			<th>Email</th>
@@ -11,19 +11,19 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr	ng-repeat="user in userList | orderBy:'name'" ng-click="addUser(user)">
-		    <td><input type="checkbox" ng-model="user.id"></td>
-			<td ng-bind="user.first_name"></td>
-			<td ng-bind="user.last_name"></td>
-			<td ng-bind="user.email"></td>
-			<td ng-bind="user.role"></td>
-			<td ng-bind="user.contact_numbers"></td>
+		<tr class="c-p"	ng-repeat="user in userList | orderBy:'name'">
+		    <td><input type="checkbox" checklist-model="selected.usersList" checklist-value="user.id"></td>
+			<td ng-bind="user.first_name" ng-click="addUser(user)"></td>
+			<td ng-bind="user.last_name" ng-click="addUser(user)"></td>
+			<td ng-bind="user.email" ng-click="addUser(user)"></td>
+			<td ng-bind="user.role" ng-click="addUser(user)"></td>
+			<td ng-bind="user.contact_numbers" ng-click="addUser(user)"></td>
 		</tr>
 	</tbody>
 </table>
 </div>
 <footer>
-    <button type="button" class="btn btn-default" ng-click="deleteusers()">Delete</button>
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#confirmationModal">Delete</button>
 	<button type="button" class="btn btn-primary pull-right" ng-click="addUser()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add User</button>		
 </footer>
 
@@ -91,3 +91,22 @@
 		</div>
 	</div>
 </div>
+
+<!-- Modal -->
+        <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="confirmationModalLabel">Confirmation to delete users</h4>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete selected users?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" ng-click="deleteUsers()">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>

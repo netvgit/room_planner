@@ -5,6 +5,9 @@ mrpApp.controller('ManageUsersController', function($rootScope, $scope) {
 
 	// Changes main content heading
 	$rootScope.MainHeading = "Manage Users";
+	
+	$scope.selected = {};
+	$scope.selected.usersList =[];
 
 	// To show modal with form and form will be filled with selected user
 	// details or empty if new user
@@ -79,7 +82,32 @@ mrpApp.controller('ManageUsersController', function($rootScope, $scope) {
 		}	
 	};
 
-	// Delete user
-	$scope.deleteUsers = function(userIds, isValid) {
+	$scope.checkAll = function() {		
+		var selectAll = document.getElementById('check-all').checked;
+		console.log(selectAll);
+		if(selectAll)
+			$scope.selected.usersList = $scope.userList.map(function(item) { return item.id; });
+		else
+			$scope.selected.usersList = [];		 
+	  };
+	
+	// Delete users
+	$scope.deleteUsers = function() {
+		console.log($scope.selected.usersList);
+		console.log($scope.selected.usersList.length);
+		
+		// hide modal from display
+        $jQ("#confirmationModal").modal('hide');
+
+        // remove modal backdrop from display
+        $jQ(".modal-backdrop").remove();
+		
+		if($scope.selected.usersList.length == 0)
+		  {
+			console.log("Nothing to delete");
+			return;									
+		  }		
+		
+		$scope.userList = AppOperations.deleteUsers($scope.selected.usersList);
 	};
 });

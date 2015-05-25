@@ -2,7 +2,7 @@
 <table class="table table-hover">
 	<thead class="blue-bg-color">
 		<tr>
-		    <th><input type="checkbox"></th>
+		    <th><input id="check-all" type="checkbox" ng-click="checkAll()"></th>
 			<th>Name</th>
 			<th>Location</th>
 			<th>Capacity</th>
@@ -11,19 +11,19 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr	ng-repeat="room in roomsList | orderBy:'name'" ng-click="addRoom(room)">
-		    <td><input type="checkbox" ng-model="room.id"></td>
-			<td ng-bind="room.name"></td>
-			<td ng-bind="room.location"></td>
-			<td ng-bind="room.capacity"></td>
-			<td ng-bind="room.facilities"></td>
-			<td><span class="glyphicon glyphicon-tint pl-15" style="color:{{room.color}};" aria-hidden="true"></span></td>
+		<tr	class="c-p" ng-repeat="room in roomsList | orderBy:'name'">
+		    <td><input type="checkbox"  checklist-model="selected.roomsList" checklist-value="room.id"></td>
+			<td ng-bind="room.name" ng-click="addRoom(room)"></td>
+			<td ng-bind="room.location" ng-click="addRoom(room)"></td>
+			<td ng-bind="room.capacity" ng-click="addRoom(room)"></td>
+			<td ng-bind="room.facilities" ng-click="addRoom(room)"></td>
+			<td ng-click="addRoom(room)"><span class="glyphicon glyphicon-tint pl-15" style="color:{{room.color}};" aria-hidden="true"></span></td>
 		</tr>
 	</tbody>
 </table>
 </div>
 <footer>
-    <button type="button" class="btn btn-default" ng-click="deleteRooms()">Delete</button>
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#confirmationModal">Delete</button>
 	<button type="button" class="btn btn-primary pull-right" ng-click="addRoom()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Room</button>		
 </footer>
 
@@ -88,3 +88,22 @@
 		</div>
 	</div>
 </div>
+
+<!-- Modal -->
+        <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="confirmationModalLabel">Confirmation to delete rooms</h4>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete selected rooms?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" ng-click="deleteRooms()">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>

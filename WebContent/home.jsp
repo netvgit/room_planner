@@ -24,6 +24,7 @@
   <script src="js/lib/fullcalendar.js"></script>
   <script src="js/lib/gcal.js"></script>
   <script src="js/calendar.js"></script>
+  <script src="js/lib/checklist-model.js"></script>
     
   <script src="data/mrpJson.js"></script>
   <script src="js/mrpCore.js"></script>
@@ -38,7 +39,7 @@
   <script src="controllers/calendar-view.js"></script>
   <script src="js/mrpUi.js"></script>
   
-  <script src="http://223.224.131.144/scripts/Anchor.js"></script>
+  <!-- <script src="http://223.224.131.144/scripts/Anchor.js"></script> -->
 </head>
 
 <%

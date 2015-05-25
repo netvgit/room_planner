@@ -73,6 +73,9 @@ mrpApp.controller('ManageRoomsController', function($rootScope, $scope) {
 
 	// Changes main content heading
 	$rootScope.MainHeading = "Manage Rooms";
+	
+	$scope.selected = {};
+	$scope.selected.roomsList =[];
 
 	// To show modal with form and form will be filled with selected room
 	// details or empty if new room
@@ -140,7 +143,32 @@ mrpApp.controller('ManageRoomsController', function($rootScope, $scope) {
 		}	
 	};
 
+	$scope.checkAll = function() {		
+		var selectAll = document.getElementById('check-all').checked;
+		console.log(selectAll);
+		if(selectAll)
+			$scope.selected.roomsList = $scope.roomsList.map(function(item) { return item.id; });
+		else
+			$scope.selected.roomsList = [];		 
+	  };
+	
 	// Delete room
-	$scope.deleteRooms = function(roomIds, isValid) {
+	$scope.deleteRooms = function() {
+		console.log($scope.selected.roomsList);
+		console.log($scope.selected.roomsList.length);
+		
+		// hide modal from display
+        $jQ("#confirmationModal").modal('hide');
+
+        // remove modal backdrop from display
+        $jQ(".modal-backdrop").remove();
+		
+		if($scope.selected.roomsList.length == 0)
+		  {
+			console.log("Nothing to delete");
+			return;									
+		  }		
+		
+		$scope.roomsList = AppOperations.deleteRooms($scope.selected.roomsList);
 	};
 });

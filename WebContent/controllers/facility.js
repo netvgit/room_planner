@@ -4,6 +4,9 @@ mrpApp.controller('ManageFacilitiesController', function($rootScope, $scope) {
 
 	// Changes main content heading
 	$rootScope.MainHeading = "Manage Facilities";
+	
+	$scope.selected = {};
+	$scope.selected.facilitiesList =[];
 
 	// To show modal with form and form will be filled with selected Facility
 	// details or empty if new Facility
@@ -66,7 +69,32 @@ mrpApp.controller('ManageFacilitiesController', function($rootScope, $scope) {
 		}	
 	};
 
-	// Delete Facility
-	$scope.deleteFacilities = function(facilityIds, isValid) {
+	$scope.checkAll = function() {		
+		var selectAll = document.getElementById('check-all').checked;
+		console.log(selectAll);
+		if(selectAll)
+			$scope.selected.facilitiesList = $scope.facilitiesList.map(function(item) { return item.id; });
+		else
+			$scope.selected.facilitiesList = [];		 
+	  };
+	
+	// Delete users
+	$scope.deleteFacilities = function() {
+		console.log($scope.selected.facilitiesList);
+		console.log($scope.selected.facilitiesList.length);
+		
+		// hide modal from display
+        $jQ("#confirmationModal").modal('hide');
+
+        // remove modal backdrop from display
+        $jQ(".modal-backdrop").remove();
+		
+		if($scope.selected.facilitiesList.length == 0)
+		  {
+			console.log("Nothing to delete");
+			return;									
+		  }		
+		
+		$scope.facilitiesList = AppOperations.deleteFacilities($scope.selected.facilitiesList);
 	};
 });

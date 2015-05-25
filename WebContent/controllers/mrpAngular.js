@@ -1,4 +1,4 @@
- var mrpApp = angular.module("mrpApp", ['ui.calendar','ui.bootstrap','ngRoute']);
+ var mrpApp = angular.module("mrpApp", ['checklist-model','ui.calendar','ui.bootstrap','ngRoute']);
 
  mrpApp.config(['$routeProvider',
      function($routeProvider) {

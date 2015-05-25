@@ -62,5 +62,49 @@ var AppOperations = {
 				facilitiesJSON[i] = facility;
 			}
 		}
+	},
+
+	// Delete Rooms
+	deleteRooms : function(rooms) {
+		for(var i=0;i< rooms.length; i++)
+		   {
+			roomsJSON = $jQ.grep(roomsJSON, function(r) {
+	            return r.id !== rooms[i];
+	        });
+		   }
+		return roomsJSON;
+	},
+
+	// Delete Users
+	deleteUsers : function(users) {
+		for(var i=0;i< users.length; i++)
+		   {
+			userJSON = $jQ.grep(userJSON, function(u) {
+	            return u.id !== users[i];
+	        });
+		   }
+		return userJSON;
+	},
+
+	// Delete Locations
+	deleteLocations : function(locations) {
+		for(var i=0;i< locations.length; i++)
+		   {
+			locationsJSON = $jQ.grep(locationsJSON, function(l) {
+	            return l.id !== locations[i];
+	        });
+		   }
+		return locationsJSON;
+	},
+
+	// Delete Facilities
+	deleteFacilities : function(facilities) {
+		for(var i=0;i< facilities.length; i++)
+		   {
+			facilitiesJSON = $jQ.grep(facilitiesJSON, function(l) {
+	            return l.id !== facilities[i];
+	        });
+		   }
+		return facilitiesJSON;
 	}		
 };

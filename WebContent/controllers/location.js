@@ -4,6 +4,9 @@ mrpApp.controller('ManageLocationsController', function($rootScope, $scope) {
 
 	// Changes main content heading
 	$rootScope.MainHeading = "Manage Locations";
+	
+	$scope.selected = {};
+	$scope.selected.locationsList =[];
 
 	// To show modal with form and form will be filled with selected Location
 	// details or empty if new Location
@@ -66,7 +69,32 @@ mrpApp.controller('ManageLocationsController', function($rootScope, $scope) {
 		}	
 	};
 
-	// Delete Location
-	$scope.deleteLocations = function(locationIds, isValid) {
+	$scope.checkAll = function() {		
+		var selectAll = document.getElementById('check-all').checked;
+		console.log(selectAll);
+		if(selectAll)
+			$scope.selected.locationsList = $scope.locationsList.map(function(item) { return item.id; });
+		else
+			$scope.selected.locationsList = [];		 
+	  };
+	
+	// Delete users
+	$scope.deleteLocations = function() {
+		console.log($scope.selected.locationsList);
+		console.log($scope.selected.locationsList.length);
+		
+		// hide modal from display
+        $jQ("#confirmationModal").modal('hide');
+
+        // remove modal backdrop from display
+        $jQ(".modal-backdrop").remove();
+		
+		if($scope.selected.locationsList.length == 0)
+		  {
+			console.log("Nothing to delete");
+			return;									
+		  }		
+		
+		$scope.locationsList = AppOperations.deleteLocations($scope.selected.locationsList);
 	};
 });
