@@ -33,6 +33,12 @@ mrpApp.controller('ManageLocationsController', function($rootScope, $scope) {
 
         // Empty Location
         $scope.location = {};
+        
+        // Set Country
+        $scope.location.country = "";
+        
+        // Set State
+        $scope.location.state = "";
 
         // If location selected
         if (selectedLocation) {
@@ -48,8 +54,23 @@ mrpApp.controller('ManageLocationsController', function($rootScope, $scope) {
             $scope.modal.heading = "Edit Location";
         }
 
+        // After modal shown, populate country and state list
+        $jQ('#addLocationModal').on('shown.bs.modal', function () {
+        	 // Populate country in list
+            print_country("country");
+            
+            // Select country in form
+            $jQ("#country").val($scope.location.country);
+            
+            // Populate state in list
+            print_state('state', $jQ("#country")[0].selectedIndex);
+           
+            // Select state in form
+            $jQ("#state").val($scope.location.state);
+        });
+        
         // Show modal
-        $jQ('#addLocationModal').modal('show');
+        $jQ('#addLocationModal').modal('show');       
     };
 
     /**

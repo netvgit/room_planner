@@ -63,6 +63,26 @@
                         <input type="text" name="name" class="form-control" value="{{location.name}}" required>
                     </div>
 
+					<!-- Country -->
+                    <div class="form-group">
+                        <label>Country</label>
+                        <!-- <input type="text" name="country" class="form-control" value="{{location.country}}"> -->
+                        <select onchange="print_state('state', this.selectedIndex);" id="country" name="country" class="form-control" value="{{location.country}}"></select>
+                    </div>
+                    
+                    <!-- State -->
+                    <div class="form-group">
+                        <label>State</label>
+                        <!-- <input type="text" name="state" class="form-control" value="{{location.state}}"> -->
+                        <select id ="state" name ="state" class="form-control" value="{{location.state}}"></select>
+                    </div>
+                    
+                    <!-- City -->
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" name="city" class="form-control" value="{{location.city}}">                        
+                    </div>
+                    
                     <!-- Floor -->
                     <div class="form-group">
                         <label>Floor</label>
@@ -74,25 +94,7 @@
                         <label>Building</label>
                         <input type="text" name="building" class="form-control" value="{{location.building}}" required>
                     </div>
-
-                    <!-- City -->
-                    <div class="form-group">
-                        <label>City</label>
-                        <input type="text" name="city" class="form-control" value="{{location.city}}">
-                    </div>
-
-                    <!-- State -->
-                    <div class="form-group">
-                        <label>State</label>
-                        <input type="text" name="state" class="form-control" value="{{location.state}}">
-                    </div>
-
-                    <!-- Country -->
-                    <div class="form-group">
-                        <label>Country</label>
-                        <input type="text" name="country" class="form-control" value="{{location.country}}">
-                    </div>
-
+                    
                     <!-- Postal Code -->
                     <div class="form-group">
                         <label>Postal Code</label>
