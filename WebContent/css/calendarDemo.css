@@ -6,21 +6,6 @@ section {
 	padding-top: 40px;
 }
 
-.btn-group>.btn:active{
-	border:1px solid #000;
-}
-.btn-group>.btn:hover{
-	border:1px solid #000;
-}
-
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
-  color: #555;
-  cursor: default;
-  background-color: #F5F5F5;
-  border: 1px solid #ddd;
-  border-bottom-color: rgba(0, 0, 0, 0.06);
-}
-
 /*** Calendar ***/
 
 .calAlert{

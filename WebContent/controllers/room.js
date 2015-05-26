@@ -1,174 +1,235 @@
-// Displays available rooms in Grid view
+/**
+ * Add new slot and display available rooms as per search.
+ * @description This is angular controller for displaying available rooms in Grid view.
+ * @class mrp_app.mrpApp.AvailableRoomsController
+ * @param searchSlotService {factory} details for query 
+ */
 mrpApp.controller('AvailableRoomsController', function($rootScope, $scope,
-		searchSlotService) {
-	// Get data
-	$scope.mrp = {};
-	$scope.mrp.roomsList = roomsJSON;
+    searchSlotService) {
+    // Get data
+    $scope.mrp = {};
 
-	$scope.mrp.searchSlot = searchSlotService.dataObj;
+    // Get room json array
+    $scope.mrp.roomsList = roomsJSON;
 
-	console.log($scope.mrp.searchSlot);
+    // Get query details from factory data
+    $scope.mrp.searchSlot = searchSlotService.dataObj;
 
-	// Changes main content heading
-	$rootScope.MainHeading = "Available Rooms";
+    console.log($scope.mrp.searchSlot);
 
-	// To show modal with form and form will be filled with selected room
-	// details
-	$scope.bookSlot = function(selectedRoomID) {
-		var selectedRoom = AppOperations.getRoom(selectedRoomID);
-		$scope.room = selectedRoom;
+    // Changes main content heading
+    $rootScope.MainHeading = "Available Rooms";
 
-		console.log(selectedRoom);
+    /**
+     * @name $scope.bookSlot
+     * @function bookSlot
+     * @memberOf mrp_app.mrpApp.AvailableRoomsController
+     * @description To show modal with form and form will be filled with selected room details
+     * @param selectedRoomID {Number} selected Room ID
+     */
+    $scope.bookSlot = function(selectedRoomID) {
+        // Get room object on ID
+        var selectedRoom = AppOperations.getRoom(selectedRoomID);
 
-		$jQ('#bookSlotModal').modal('show');
-	};
+        // Selected room to scope
+        $scope.room = selectedRoom;
 
-	// After modifications or filling new details will save slot
-	$scope.submitSlot = function(slot, room, isValid) {
-		console.log(slot);
-		console.log(isValid);
-		console.log(room);
+        console.log(selectedRoom);
 
-		// check to make sure the form is completely valid
-		if (!isValid) {
-			alert("Fill proper details.");
-			return;
-		}
+        // Show modal
+        $jQ('#bookSlotModal').modal('show');
+    };
 
-		$jQ('#bookSlotModal').modal('hide');
+    /**
+     * @name $scope.submitSlot
+     * @function submitSlot
+     * @memberOf mrp_app.mrpApp.AvailableRoomsController
+     * @description After modifications or filling new details will save slot
+     * @param slot {Object} slot details
+     * @param room {Object} room details
+     * @param isValid {boolean} form validation
+     */
+    $scope.submitSlot = function(slot, room, isValid) {
+        console.log(slot);
+        console.log(isValid);
+        console.log(room);
 
-		$jQ(".modal-backdrop").remove();
+        // check to make sure the form is completely valid
+        if (!isValid) {
+            alert("Fill proper details.");
+            return;
+        }
 
-		// Create new slot json
+        $jQ('#bookSlotModal').modal('hide');
 
-		// Assign new id to new event
-		slot.id = parseInt(slotsJSON[slotsJSON.length - 1].id) + 1;
+        $jQ(".modal-backdrop").remove();
 
-		// Assign room id
-		slot.room_id = room.id;
+        // Create new slot json
 
-		// Assign owner id
-		slot.owner_id = user_id;
-		
-		// Assign date
-		slot.date = $scope.mrp.searchSlot.date;
+        // Assign new id to new event
+        slot.id = parseInt(slotsJSON[slotsJSON.length - 1].id) + 1;
 
-		// Assign start time
-		slot.start = $scope.mrp.searchSlot.startTime;
+        // Assign room id
+        slot.room_id = room.id;
 
-		// Assign end time
-		slot.end = $scope.mrp.searchSlot.endTime;
+        // Assign owner id
+        slot.owner_id = user_id;
 
-		// Add new event in events json array
-		slotsJSON[slotsJSON.length] = slot;
+        // Assign date
+        slot.date = $scope.mrp.searchSlot.date;
 
-		// Show slot in slot detail view
-		window.location = '#/slotdetail/' + slot.id;
-	};
+        // Assign start time
+        slot.start = $scope.mrp.searchSlot.startTime;
+
+        // Assign end time
+        slot.end = $scope.mrp.searchSlot.endTime;
+
+        // Add new event in events json array
+        slotsJSON[slotsJSON.length] = slot;
+
+        // Show slot in slot detail view
+        window.location = '#/slotdetail/' + slot.id;
+    };
 });
 
+/**
+ * Add, Remove and Edit room.
+ * @description This is angular controller for managing rooms.
+ * @class mrp_app.mrpApp.ManageRoomsController
+ */
 mrpApp.controller('ManageRoomsController', function($rootScope, $scope) {
-	// Get data
-	$scope.roomsList = roomsJSON;
+    // Get data
+    $scope.roomsList = roomsJSON;
 
-	// Changes main content heading
-	$rootScope.MainHeading = "Manage Rooms";
-	
-	$scope.selected = {};
-	$scope.selected.roomsList =[];
+    // Changes main content heading
+    $rootScope.MainHeading = "Manage Rooms";
 
-	// To show modal with form and form will be filled with selected room
-	// details or empty if new room
-	$scope.addRoom = function(selectedRoom) {
+    // Selected rooms from table for deletion
+    $scope.selected = {};
+    $scope.selected.roomsList = [];
 
-		// var selectedRoom = AppOperations.getRoom(selectedRoomID);
+    /**
+     * @name $scope.addRoom
+     * @function addRoom
+     * @memberOf mrp_app.mrpApp.ManageRoomsController
+     * @description To show modal with form and form will be filled with selected Room details or empty if new Room
+     * @param selectedRoom {Object} Room JSON
+     */
+    $scope.addRoom = function(selectedRoom) {
+        // Data for modal
+        $scope.modal = {};
 
-		$scope.modal = {};
-		$scope.modal.icon = "glyphicon-plus";
-		$scope.modal.heading = "Add Room";
-		$scope.room = {};
+        // Icon for modal to add new room
+        $scope.modal.icon = "glyphicon-plus";
 
-		if (selectedRoom) {
-			$scope.room = selectedRoom;
+        // Heading for modal to add new room
+        $scope.modal.heading = "Add Room";
 
-			console.log(selectedRoom);
+        // Empty Room
+        $scope.room = {};
 
-			$scope.modal.icon = "glyphicon-edit";
-			$scope.modal.heading = "Edit Room";
-		}
+        // If room selected
+        if (selectedRoom) {
+            // Room for edit
+            $scope.room = selectedRoom;
 
-		// Show modal
-		$jQ('#addRoomModal').modal('show');
-	};
+            console.log(selectedRoom);
 
-	// After modifications or filling new details will save room
-	$scope.submitRoom = function(isValid) {
-		console.log(isValid);
-				
-		//var newRoom = JSON.stringify($jQ("#addRoomForm").serializeArray());
-		
-		var newRoom = $jQ('#addRoomForm').serializeArray();
-		var newRoomObject = {};
-		$jQ.each(newRoom,
-		    function(i, v) {
-			newRoomObject[v.name] = v.value;
-		    });
-		
-		console.log(newRoomObject);
+            // Icon for modal to edit selected room
+            $scope.modal.icon = "glyphicon-edit";
 
-		/*// check to make sure the form is completely valid
+            // Heading for modal to edit selected room
+            $scope.modal.heading = "Edit Room";
+        }
+
+        // Show modal
+        $jQ('#addRoomModal').modal('show');
+    };
+
+    /**
+     * @name $scope.submitRoom
+     * @function submitRoom
+     * @memberOf mrp_app.mrpApp.ManageRoomsController
+     * @description Save edited or newly added room in DB/JSON array
+     * @param isValid {boolean} form validation
+     */
+    $scope.submitRoom = function(isValid) {
+        console.log(isValid);
+
+        // Serialize room form		
+        var newRoom = AppOperations.serializeForm('#addRoomForm');
+        console.log(newRoom);
+
+        /*// check to make sure the form is completely valid
 		if (!isValid) {
 			alert("Fill proper details.");
 			return;
 		}*/
 
-		// Hide modal
-		$jQ('#addRoomModal').modal('hide');
+        // Hide modal
+        $jQ('#addRoomModal').modal('hide');
 
-		$jQ(".modal-backdrop").remove();
-		
-		// Reset form
-		document.getElementById("addRoomForm").reset();
+        // Remove backdrop of modal
+        $jQ(".modal-backdrop").remove();
 
-		if (newRoomObject.id) {
-			AppOperations.updateRoom(newRoomObject);
-		} else {
-			// Create new room json
+        // Reset form
+        document.getElementById("addRoomForm").reset();
 
-			// Assign new id to new room
-			newRoomObject.id = parseInt(roomsJSON[roomsJSON.length - 1].id) + 1;
+        // if room has id so update room
+        if (newRoom.id) {
+            AppOperations.updateRoom(newRoom);
+        } else {
+            // Assign new id to new room
+            newRoom.id = parseInt(roomsJSON[roomsJSON.length - 1].id) + 1;
 
-			// Add new room in rooms json array
-			roomsJSON[roomsJSON.length] = newRoomObject;
-		}	
-	};
+            // Add new room in rooms json array
+            roomsJSON[roomsJSON.length] = newRoom;
+        }
+    };
 
-	$scope.checkAll = function() {		
-		var selectAll = document.getElementById('check-all').checked;
-		console.log(selectAll);
-		if(selectAll)
-			$scope.selected.roomsList = $scope.roomsList.map(function(item) { return item.id; });
-		else
-			$scope.selected.roomsList = [];		 
-	  };
-	
-	// Delete room
-	$scope.deleteRooms = function() {
-		console.log($scope.selected.roomsList);
-		console.log($scope.selected.roomsList.length);
-		
-		// hide modal from display
+    /**
+     * @name $scope.checkAll
+     * @function checkAll
+     * @memberOf mrp_app.mrpApp.ManageRoomsController
+     * @description Select all or deselect all checkboxes on room table for deletion.
+     */
+    $scope.checkAll = function() {
+        // Get selectAll checked or not
+        var selectAll = document.getElementById('check-all').checked;
+        console.log(selectAll);
+
+        // All are selected, add all ids in array
+        if (selectAll)
+            $scope.selected.roomsList = $scope.roomsList.map(function(item) {
+                return item.id;
+            });
+        else
+            $scope.selected.roomsList = []; // Nothing is selected
+    };
+
+    /**
+     * @name $scope.deleteRooms
+     * @function deleteRooms
+     * @memberOf mrp_app.mrpApp.ManageRoomsController
+     * @description Delete selected rooms
+     */
+    $scope.deleteRooms = function() {
+        console.log($scope.selected.roomsList);
+        console.log($scope.selected.roomsList.length);
+
+        // hide modal from display
         $jQ("#confirmationModal").modal('hide');
 
         // remove modal backdrop from display
         $jQ(".modal-backdrop").remove();
-		
-		if($scope.selected.roomsList.length == 0)
-		  {
-			console.log("Nothing to delete");
-			return;									
-		  }		
-		
-		$scope.roomsList = AppOperations.deleteRooms($scope.selected.roomsList);
-	};
+
+        // If nothing to delete
+        if ($scope.selected.roomsList.length == 0) {
+            console.log("Nothing to delete");
+            return;
+        }
+
+        // Delete selected rooms and get updated json array
+        $scope.roomsList = AppOperations.deleteRooms($scope.selected.roomsList);
+    };
 });

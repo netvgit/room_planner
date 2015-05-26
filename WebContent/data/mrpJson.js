@@ -116,7 +116,7 @@ var slotsJSON = [{
 }];
 
 /**
- * Global object of logged in user.
+ * Global object of user.
  */
 var userJSON = [{
     "id": 1,

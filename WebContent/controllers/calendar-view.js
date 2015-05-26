@@ -8,8 +8,7 @@ mrpApp.controller('CalendarViewController', function($rootScope, $scope,$compile
     var y = date.getFullYear();
 
     $scope.newEvent = {};
-    $scope.currentView = 'agendaDay';
-    $scope.clickedEvent = {};
+    $scope.currentView = 'agendaDay'
 
     /* event source that contains custom events on the scope */
     $scope.events = slotsJSON;/*[
@@ -30,22 +29,19 @@ mrpApp.controller('CalendarViewController', function($rootScope, $scope,$compile
     };
 
     $scope.calEventsExt = {
-       color: 'black',
-       textColor: 'white',
-       events: slotsJSON/*[ 
+       color: '#f00',
+       textColor: 'yellow',
+       events: [ 
           {type:'party',title: 'Lunch',start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
           {type:'party',title: 'Lunch 2',start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
           {type:'party',title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
-        ]*/
+        ]
     };
 
     /* alert on eventClick */
     $scope.alertOnEventClick = function( date, jsEvent, view){
-        $scope.toggleModal();
-        $scope.clickedEvent = date;
+        $scope.alertMessage = (date.title + ' was clicked ');
     };
-    
-    
     /* alert on Drop */
      $scope.alertOnDrop = function(event, delta, revertFunc, jsEvent, ui, view){
        $scope.alertMessage = ('Event Droped to make dayDelta ' + delta);
@@ -123,7 +119,7 @@ mrpApp.controller('CalendarViewController', function($rootScope, $scope,$compile
       calendar:{
         height: 450,
         editable: true,
-        theme:true,
+        theme:false,
         ignoreTimezone: false,
         header:{
           left: 'title',

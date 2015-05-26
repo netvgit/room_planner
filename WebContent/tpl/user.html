@@ -1,112 +1,114 @@
 <div class="table-responsive">
-<table class="table table-hover">
-	<thead class="blue-bg-color">
-		<tr>
-		    <th><input id="check-all" type="checkbox" ng-click="checkAll()"></th>
-			<th>First Name</th>
-			<th>Last Name</th>
-			<th>Email</th>
-			<th>Role</th>
-			<th>Contact #</th>			
-		</tr>
-	</thead>
-	<tbody>
-		<tr class="c-p"	ng-repeat="user in userList | orderBy:'name'">
-		    <td><input type="checkbox" checklist-model="selected.usersList" checklist-value="user.id"></td>
-			<td ng-bind="user.first_name" ng-click="addUser(user)"></td>
-			<td ng-bind="user.last_name" ng-click="addUser(user)"></td>
-			<td ng-bind="user.email" ng-click="addUser(user)"></td>
-			<td ng-bind="user.role" ng-click="addUser(user)"></td>
-			<td ng-bind="user.contact_numbers" ng-click="addUser(user)"></td>
-		</tr>
-	</tbody>
-</table>
+    <table class="table table-hover">
+        <thead class="blue-bg-color">
+            <tr>
+                <th>
+                    <input id="check-all" type="checkbox" ng-click="checkAll()">
+                </th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Contact #</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="c-p" ng-repeat="user in userList | orderBy:'name'">
+                <td>
+                    <input type="checkbox" checklist-model="selected.usersList" checklist-value="user.id">
+                </td>
+                <td ng-bind="user.first_name" ng-click="addUser(user)"></td>
+                <td ng-bind="user.last_name" ng-click="addUser(user)"></td>
+                <td ng-bind="user.email" ng-click="addUser(user)"></td>
+                <td ng-bind="user.role" ng-click="addUser(user)"></td>
+                <td ng-bind="user.contact_numbers" ng-click="addUser(user)"></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 <footer>
     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#confirmationModal">Delete</button>
-	<button type="button" class="btn btn-primary pull-right" ng-click="addUser()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add User</button>		
+    <button type="button" class="btn btn-primary pull-right" ng-click="addUser()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add User</button>
 </footer>
 
 <!-- Modal -->
-<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog"
-	aria-labelledby="addUserModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<h3 class="modal-title" id="addUserModalLabel">
+<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title" id="addUserModalLabel">
 					<span class="glyphicon {{modal.icon}}" aria-hidden="true"></span>
 					{{modal.heading}}
 				</h3>
-			</div>
-			<div class="modal-body">
-			
-				<!-- FORM -->
-				<form class="mrp-form" name="addUserForm" id="addUserForm" novalidate>
+            </div>
+            <div class="modal-body">
+
+                <!-- FORM -->
+                <form class="mrp-form" name="addUserForm" id="addUserForm" novalidate>
 
                     <input type="hidden" name="id" class="form-control" value="{{user.id}}">
 
-					<!-- First NAME -->
-					<div class="form-group">
-						<label>Fisrt Name</label> 
-						<input type="text" name="first_name" class="form-control" value="{{user.first_name}}" required>
-					</div>
-					
-					<!-- Last NAME -->
-					<div class="form-group">
-						<label>Last Name</label> 
-						<input type="text" name="last_name" class="form-control" value="{{user.last_name}}" required>
-					</div>
-					
+                    <!-- First NAME -->
+                    <div class="form-group">
+                        <label>Fisrt Name</label>
+                        <input type="text" name="first_name" class="form-control" value="{{user.first_name}}" required>
+                    </div>
 
-					<!-- Email -->
-					<div class="form-group">
-						<label>Email</label> 
-						<input type="email" name="email" class="form-control" value="{{user.email}}" required>
-					</div>
+                    <!-- Last NAME -->
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" name="last_name" class="form-control" value="{{user.last_name}}" required>
+                    </div>
 
-					<!-- Contact Number -->
-					<div class="form-group">
-						<label>Contact</label> 
-						<input type="text" name="contact_numbers" class="form-control" value="{{user.contact_numbers}}">
-					</div>
-					
-					<!-- Role -->
-					<div class="form-group">
-						<label>User Role</label>						
-						<select id="role" name="role" value="{{user.role}}" class="form-control">
-    						<option ng-repeat="role in userRoleList" value="{{role.type}}">{{role.type}}</option>
- 						</select>
-					</div>					
-				</form>
 
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>				
-				<button type="button" class="btn btn-primary" ng-click="submitUser(addUserForm.$valid)">Save</button>
-			</div>
-		</div>
-	</div>
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control" value="{{user.email}}" required>
+                    </div>
+
+                    <!-- Contact Number -->
+                    <div class="form-group">
+                        <label>Contact</label>
+                        <input type="text" name="contact_numbers" class="form-control" value="{{user.contact_numbers}}">
+                    </div>
+
+                    <!-- Role -->
+                    <div class="form-group">
+                        <label>User Role</label>
+                        <select id="role" name="role" value="{{user.role}}" class="form-control">
+                            <option ng-repeat="role in userRoleList" value="{{role.type}}">{{role.type}}</option>
+                        </select>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="submitUser(addUserForm.$valid)">Save</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Modal -->
-        <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="confirmationModalLabel">Confirmation to delete users</h4>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to delete selected users?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" ng-click="deleteUsers()">Delete</button>
-                    </div>
-                </div>
+<div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="confirmationModalLabel">Confirmation to delete users</h4>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete selected users?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="deleteUsers()">Delete</button>
             </div>
         </div>
+    </div>
+</div>
