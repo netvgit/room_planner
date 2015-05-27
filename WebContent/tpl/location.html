@@ -1,105 +1,133 @@
 <div class="table-responsive">
-<table class="table table-hover">
-	<thead class="blue-bg-color">
-		<tr>
-		    <th><input type="checkbox"></th>
-			<th>Name</th>
-			<th>Floor</th>
-			<th>Building</th>
-			<th>City</th>	
-			<th>State</th>
-			<th>Country</th>
-			<th>Postal Code</th>			
-		</tr>
-	</thead>
-	<tbody>
-		<tr	ng-repeat="location in locationsList | orderBy:'name'" ng-click="addLocation(location)">
-		    <td><input type="checkbox" ng-model="location.id"></td>
-			<td ng-bind="location.name"></td>
-			<td ng-bind="location.floor"></td>
-			<td ng-bind="location.building"></td>
-			<td ng-bind="location.city"></td>
-			<td ng-bind="location.state"></td>
-			<td ng-bind="location.country"></td>
-			<td ng-bind="location.postal_code"></td>
-		</tr>
-	</tbody>
-</table>
+    <table class="table table-hover">
+        <thead class="blue-bg-color">
+            <tr>
+                <th>
+                    <input id="check-all" type="checkbox" ng-click="checkAll()">
+                </th>
+                <th>Name</th>
+                <th>Floor</th>
+                <th>Building</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Postal Code</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="c-p" ng-repeat="location in locationsList | orderBy:'name'">
+                <td>
+                    <input type="checkbox" checklist-model="selected.locationsList" checklist-value="location.id">
+                </td>
+                <td ng-bind="location.name" ng-click="addLocation(location)"></td>
+                <td ng-bind="location.floor" ng-click="addLocation(location)"></td>
+                <td ng-bind="location.building" ng-click="addLocation(location)"></td>
+                <td ng-bind="location.city" ng-click="addLocation(location)"></td>
+                <td ng-bind="location.state" ng-click="addLocation(location)"></td>
+                <td ng-bind="location.country" ng-click="addLocation(location)"></td>
+                <td ng-bind="location.postal_code" ng-click="addLocation(location)"></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 <footer>
-    <button type="button" class="btn btn-default" ng-click="deleteLocations()">Delete</button>
-	<button type="button" class="btn btn-primary pull-right" ng-click="addLocation()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Location</button>		
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#confirmationModal">Delete</button>
+    <button type="button" class="btn btn-primary pull-right" ng-click="addLocation()">
+       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Location
+    </button>
 </footer>
 
 <!-- Modal -->
-<div class="modal fade" id="addLocationModal" tabindex="-1" role="dialog"
-	aria-labelledby="addLocationModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<h3 class="modal-title" id="addLocationModalLabel">
+<div class="modal fade" id="addLocationModal" tabindex="-1" role="dialog" aria-labelledby="addLocationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title" id="addLocationModalLabel">
 					<span class="glyphicon {{modal.icon}}" aria-hidden="true"></span>
 					{{modal.heading}}
 				</h3>
-			</div>
-			<div class="modal-body">
-			
-				<!-- FORM -->
-				<form class="mrp-form" name="addLocationForm" id="addLocationForm" novalidate>
+            </div>
+            <div class="modal-body">
+
+                <!-- FORM -->
+                <form class="mrp-form" name="addLocationForm" id="addLocationForm" novalidate>
 
                     <input type="hidden" name="id" class="form-control" value="{{location.id}}">
 
-					<!-- NAME -->
-					<div class="form-group">
-						<label>Name</label> 
-						<input type="text" name="name" class="form-control" value="{{location.name}}" required>
-					</div>
+                    <!-- NAME -->
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" class="form-control" value="{{location.name}}" required>
+                    </div>
 
-					<!-- Floor -->
-					<div class="form-group">
-						<label>Floor</label> 
-						<input type="text" name="floor" class="form-control" value="{{location.floor}}" required>
-					</div>
-
-					<!-- Building -->
-					<div class="form-group">
-						<label>Building</label> 
-						<input type="text" name="building" class="form-control" value="{{location.building}}" required>
-					</div>
-					
-					<!-- City -->
-					<div class="form-group">
-						<label>City</label> 
-						<input type="text" name="city" class="form-control" value="{{location.city}}">
-					</div>
-					
-					<!-- State -->
-					<div class="form-group">
-						<label>State</label> 
-						<input type="text" name="state" class="form-control" value="{{location.state}}">
-					</div>
-					
 					<!-- Country -->
-					<div class="form-group">
-						<label>Country</label> 
-						<input type="text" name="country" class="form-control" value="{{location.country}}">
-					</div>
-					
-					<!-- Postal Code -->
-					<div class="form-group">
-						<label>Postal Code</label> 
-						<input type="text" name="postal_code" class="form-control" value="{{location.postal_code}}">
-					</div>				
-				</form>
+                    <div class="form-group">
+                        <label>Country</label>
+                        <!-- <input type="text" name="country" class="form-control" value="{{location.country}}"> -->
+                        <select onchange="print_state('state', this.selectedIndex);" id="country" name="country" class="form-control" value="{{location.country}}"></select>
+                    </div>
+                    
+                    <!-- State -->
+                    <div class="form-group">
+                        <label>State</label>
+                        <!-- <input type="text" name="state" class="form-control" value="{{location.state}}"> -->
+                        <select id ="state" name ="state" class="form-control" value="{{location.state}}"></select>
+                    </div>
+                    
+                    <!-- City -->
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" name="city" class="form-control" value="{{location.city}}">                        
+                    </div>
+                    
+                    <!-- Floor -->
+                    <div class="form-group">
+                        <label>Floor</label>
+                        <input type="text" name="floor" class="form-control" value="{{location.floor}}" required>
+                    </div>
 
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>				
-				<button type="button" class="btn btn-primary" ng-click="submitLocation(addLocationForm.$valid)">Save</button>
-			</div>
-		</div>
-	</div>
+                    <!-- Building -->
+                    <div class="form-group">
+                        <label>Building</label>
+                        <input type="text" name="building" class="form-control" value="{{location.building}}" required>
+                    </div>
+                    
+                    <!-- Postal Code -->
+                    <div class="form-group">
+                        <label>Postal Code</label>
+                        <input type="text" name="postal_code" class="form-control" value="{{location.postal_code}}">
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="submitLocation(addLocationForm.$valid)">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                	<span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="confirmationModalLabel">Confirmation to delete locations</h4>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete selected locations?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="deleteLocations()">Delete</button>
+            </div>
+        </div>
+    </div>
 </div>

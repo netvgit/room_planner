@@ -1,5 +1,15 @@
- var mrpApp = angular.module("mrpApp", ['ui.calendar','ui.bootstrap','ngRoute']);
+/**
+ * Manages all user, room, location, facilities and calendar and booking slot.
+ * @description This is angular app for all functionality after login.
+ * @class mrp_app.mrpApp
+ * @memberOf mrp_app    
+ * @author farah
+ */  
+var mrpApp = angular.module("mrpApp", ['checklist-model', 'ui.calendar', 'ui.bootstrap', 'ngRoute']);
 
+/**
+ * All routes sets here.
+ */
  mrpApp.config(['$routeProvider',
      function($routeProvider) {
          $routeProvider.
@@ -44,36 +54,58 @@
          });
      }
  ]);
- 
+
+ /** 
+  * @function run
+  * @memberOf mrp_app.mrpApp
+  * @description Init function of app. will set default values and tick a second in date.
+  */
  mrpApp.run(function($rootScope, $interval) {
-     $rootScope.AssignedDate = Date; // 'Date' on home page in nav bar
-     $rootScope.MainHeading = "MR Planner"; // Heading of main content
+ 	 // 'Date' on home page in nav bar
+     $rootScope.AssignedDate = Date; 
+     
+     // Heading of main content
+     $rootScope.MainHeading = "MR Planner"; 
 
      $interval(function() {
          // nothing is required here, interval triggers digest automaticaly
      }, 1000)
  });
- 
- mrpApp.factory('searchSlotService', function() {
-	  var _dataObj = {};
-	  return {
-	    dataObj: _dataObj
-	  };
-});
- 
- mrpApp.factory('calendarService',function(){
-	    var _dateObj={};
-	    return {
-	        dateObj: _dateObj
-	    };
-});
 
- // Global action like add event, display profile name
+ /**
+  * Use to share data among two controllers like SearchRoomsController and AvailableRoomsController.
+  * @function searchSlotService
+  * @memberOf mrp_app.mrpApp
+  * @description This is an angularjs service.
+  */
+ mrpApp.factory('searchSlotService', function() {
+     var _dataObj = {};
+     return {
+         dataObj: _dataObj
+     };
+ });
+
+ /**
+  * @function calendarService
+  * @memberOf mrp_app.mrpApp
+  * @description This is an angularjs service.
+  */
+ mrpApp.factory('calendarService', function() {
+     var _dateObj = {};
+     return {
+         dateObj: _dateObj
+     };
+ });
+
+ /**
+  * Global action like add clock, display profile name etc.
+  * @description This is angular controller for displaying some global data of user.
+  * @class mrp_app.mrpApp.MRPController
+  */
  mrpApp.controller('MRPController', function($rootScope, $scope) {
      $scope.mrp = {};
      $scope.mrp.userId = user_id;
-     $scope.mrp.roomsList = roomsJSON;
 
      // Changes main content heading
-     $rootScope.MainHeading = "Available Rooms";
+     $rootScope.MainHeading = "Search Room";
  });

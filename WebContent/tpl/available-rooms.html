@@ -1,124 +1,141 @@
 <div class="mt-40">
-         <div class="well">
-         	<div class="row">
-         		<div class="col-sm-4">
-         			<em>On: &nbsp;</em><span ng-bind="mrp.searchSlot.date | date:'dd MMM yyyy'"></span>
-         		</div>
-         		<div class="col-sm-4">
-         			<em>From: &nbsp;</em><span ng-bind="mrp.searchSlot.startTime | date:'hh:mm a'"></span>
-         		</div>
-         		<div class="col-sm-4">
-         			<em>Till: &nbsp;</em><span ng-bind="mrp.searchSlot.endTime | date:'hh:mm a'"></span>
-         		</div>
-         	</div>	
-		</div>
-         <div class="row rooms-row">
-            <div class="col-xs-12 col-sm-6 col-lg-4 room-body" ng-repeat="room in mrp.roomsList | filter:mrp.roomsList.search | orderBy:'name'">      
-             <div class="room-overlay-parent panel panel-primary" ng-click='bookSlot(room.id)'>
-            	<div class="panel-heading">
-                	<h3 class="panel-title" ng-bind="room.name"></h3>
-            	</div>
-            	<div class="panel-body">
-                	<b>Location: </b><span ng-bind="room.location"></span><br>
-                	<b>Capacity: </b><span ng-bind="room.capacity"></span>                
-             	</div>
-             	
-             	<div class="room-overlay c-p" ng-click='bookSlot(room.id)'>
-                    <b>Name: </b>{{room.name}}<br>
-                    <b>Location: </b><span ng-bind="room.location"></span><br>
-                    <b>Capacity: </b><span ng-bind="room.capacity"></span><br>
-                    <b>Facilities: </b><span ng-bind="room.facilities"></span>
-                </div>
-        	 </div>
+    <div class="well">
+        <div class="row">
+            <div class="col-sm-4">
+                <em>On: &nbsp;</em><span ng-bind="mrp.searchSlot.date | date:'dd MMM yyyy'"></span>
+            </div>
+            <div class="col-sm-4">
+                <em>From: &nbsp;</em><span ng-bind="mrp.searchSlot.startTime | date:'hh:mm a'"></span>
+            </div>
+            <div class="col-sm-4">
+                <em>Till: &nbsp;</em><span ng-bind="mrp.searchSlot.endTime | date:'hh:mm a'"></span>
             </div>
         </div>
+    </div>
+    <div class="row rooms-row">
+        <div class="col-xs-12 col-sm-6 col-lg-4 room-body" ng-repeat="room in mrp.roomsList | filter:mrp.roomsList.search | orderBy:'name'">
+            <div class="room-overlay-parent panel panel-primary" ng-click='bookSlot(room.id)'>
+                <div class="panel-heading">
+                    <h3 class="panel-title" ng-bind="room.name"></h3>
+                </div>
+                <div class="panel-body">
+                    <b>Location: </b><span ng-bind="room.location"></span>
+                    <br>
+                    <b>Capacity: </b><span ng-bind="room.capacity"></span>
+                </div>
+
+                <div class="room-overlay c-p" ng-click='bookSlot(room.id)'>
+                    <b>Name: </b>{{room.name}}
+                    <br>
+                    <b>Location: </b><span ng-bind="room.location"></span>
+                    <br>
+                    <b>Capacity: </b><span ng-bind="room.capacity"></span>
+                    <br>
+                    <b>Facilities: </b><span ng-bind="room.facilities"></span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Modal -->
 <div class="modal fade" id="bookSlotModal" tabindex="-1" role="dialog" aria-labelledby="bookSlotModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h3 class="modal-title" id="bookSlotModalLabel"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Book Slot</h3>
-			</div>
-			<div class="modal-body">
-				<div class="details">
-					<div class="row">
-						<div class="col-xs-3">
-							<span>Room :</span>
-						</div>
-						<div class="col-xs-9">
-							<em ng-bind="room.name"></em>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-3">
-							<span>Date:</span>
-						</div>
-						<div class="col-xs-9">
-							<em ng-bind="mrp.searchSlot.date | date:'dd MMM yyyy'"></em>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-3">
-							<span>Time:</span>
-						</div>
-						<div class="col-xs-9">
-							<em ng-bind="mrp.searchSlot.startTime | date:'hh:mm a'"></em>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-3">
-							<span>Location:</span>
-						</div>
-						<div class="col-xs-9">
-							<em ng-bind="room.location"></em>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-3">
-							<span>Facilities:</span>
-						</div>
-						<div class="col-xs-9">
-							<em ng-bind="room.facilities"></em>
-						</div>
-					</div>
-				</div>
- 
-				<!-- FORM -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title" id="bookSlotModalLabel"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Book Slot</h3>
+            </div>
+            <div class="modal-body">
+                <div class="details">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <span>Room :</span>
+                        </div>
+                        <div class="col-xs-9">
+                            <em ng-bind="room.name"></em>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <span>Date:</span>
+                        </div>
+                        <div class="col-xs-9">
+                            <em ng-bind="mrp.searchSlot.date | date:'dd MMM yyyy'"></em>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <span>Time:</span>
+                        </div>
+                        <div class="col-xs-9">
+                            <em ng-bind="mrp.searchSlot.startTime | date:'hh:mm a'"></em>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <span>Location:</span>
+                        </div>
+                        <div class="col-xs-9">
+                            <em ng-bind="room.location"></em>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <span>Facilities:</span>
+                        </div>
+                        <div class="col-xs-9">
+                            <em ng-bind="room.facilities"></em>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FORM -->
                 <form class="mrp-form" name="slotForm" novalidate>
 
-        			<!--Meeting NAME -->
-        			<div class="form-group">
-        				<div class="row">
-        					<div class="col-sm-3"><label >Meeting Title</label></div>
-        					<div class="col-sm-9"><input type="text" name="title" class="form-control" ng-model="slot.title" required></div>
-        				</div>    	 
+                    <!--Meeting NAME -->
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label>Meeting Title</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" name="title" class="form-control" ng-model="slot.title" required>
+                            </div>
+                        </div>
                     </div>
 
-        			<!-- Agenda -->
-        			<div class="form-group">
-        				<div class="row">
-        					<div class="col-sm-3"><label>Agenda</label></div>
-        					<div class="col-sm-9"><input type="text" name="agenda" class="form-control" ng-model="slot.agenda" ng-minlength="3"></div>
-        				</div>        			
-        			</div>
-        
-        			<!-- Attendees -->
-        			<div class="form-group">
-        				<div class="row">
-        					<div class="col-sm-3"><label>Attendees</label></div>
-        					<div class="col-sm-9"><input type="text" name="attendees" class="form-control" ng-model="slot.attendees"></div>
-        				</div>    			
-        			</div>
-				</form>
-			</div><!-- END OF MODAL-BODY -->
-                
+                    <!-- Agenda -->
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label>Agenda</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" name="agenda" class="form-control" ng-model="slot.agenda" ng-minlength="3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Attendees -->
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label>Attendees</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" name="attendees" class="form-control" ng-model="slot.attendees">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- END OF MODAL-BODY -->
+
             <div class="modal-footer">
-            	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" ng-click="submitSlot(slot, room,slotForm.$valid)">Book</button>
-        	</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 </div>

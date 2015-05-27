@@ -2,10 +2,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <html lang="en" ng-app="mrpApp">
-<head>
+ <head>
   <meta charset="utf-8">
   <title>MR Planner Dashboard</title>
 
+  <!-- CSS -->
   <link rel="stylesheet" href="css/lib/bootstrap.min.css">
   <link rel="stylesheet" href="css/lib/fullcalendar.css">
   <link rel="stylesheet" href="css/lib/jquery-ui.theme.min.css">
@@ -17,6 +18,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.theme1.css" /> 
   <link rel="stylesheet" href="css/bootstrap.min.theme1.helper.css" />   
   
+  <!-- Lib JS files -->
   <script src="js/lib/jquery.min.js"></script>
   <script src="js/lib/bootstrap.min.js"></script>
   <script src="js/lib/angular.min.js"></script>
@@ -26,7 +28,9 @@
   <script src="js/lib/fullcalendar.js"></script>
   <script src="js/lib/gcal.js"></script>
   <script src="js/calendar.js"></script>
+  <script src="js/lib/checklist-model.js"></script>
     
+  <!-- Local JS files -->
   <script src="data/mrpJson.js"></script>
   <script src="js/mrpCore.js"></script>
   <script src="controllers/mrpAngular.js"></script>
@@ -39,9 +43,10 @@
   <script src="controllers/search-room.js"></script>
   <script src="controllers/calendar-view.js"></script>
   <script src="js/mrpUi.js"></script>
- 
-  <!-- <script src="http://223.224.131.144/scripts/Anchor.js"></script>  -->
-</head>
+  <script src="js/country-state.js"></script>
+  
+  <!-- <script src="http://223.224.131.144/scripts/Anchor.js"></script> -->
+ </head>
 
 <%
     if ((session.getAttribute("userid") == null) || (session.getAttribute("userid") == "")) {
@@ -56,8 +61,9 @@ String userId = session.getAttribute("userid").toString();
    var user_id="<%=userId%>";
 </script> 
 
-<body ng-controller="MRPController">
+ <body ng-controller="MRPController">
 
+    <!-- Top Navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">

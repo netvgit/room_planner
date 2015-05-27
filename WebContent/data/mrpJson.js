@@ -116,7 +116,7 @@ var slotsJSON = [{
 }];
 
 /**
- * Global object of logged in user.
+ * Global object of user.
  */
 var userJSON = [{
     "id": 1,
@@ -226,7 +226,7 @@ var locationsJSON = [{
     "floor":1,
     "building":"B1",
     "city":"Hyderabad",
-    "state":"Aandra Pradesh",
+    "state":"Andhra Pradesh",
     "country":"India",
     "postal_code":12345,
     "number_rooms":2
@@ -237,8 +237,8 @@ var locationsJSON = [{
     "floor":2,
     "building":"B2",
     "city":"Hyderabad",
-    "state":"Aandra Pradesh",
-    "country":"India",
+    "state":"Ile du Lys",
+    "country":"Glorioso Islands",
     "postal_code":45678,
     "number_rooms":3    
 },
@@ -248,7 +248,7 @@ var locationsJSON = [{
     "floor":3,
     "building":"B3",
     "city":"Hyderabad",
-    "state":"Aandra Pradesh",
+    "state":"Andhra Pradesh",
     "country":"India",
     "postal_code":678905,
     "number_rooms":6
