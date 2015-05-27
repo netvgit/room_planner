@@ -1,5 +1,6 @@
 mrpApp.controller('CalendarViewController', function($rootScope, $scope,$compile,uiCalendarConfig,calendarService) {
-    // Changes main content heading
+    
+	// Changes main content heading
     $rootScope.MainHeading = "Calendar";
     
     var date = new Date();
@@ -8,16 +9,11 @@ mrpApp.controller('CalendarViewController', function($rootScope, $scope,$compile
     var y = date.getFullYear();
 
     $scope.newEvent = {};
-    $scope.currentView = 'agendaDay'
+    $scope.currentView = 'agendaDay';
+    $scope.clickedEvent = {};
 
     /* event source that contains custom events on the scope */
-    $scope.events = slotsJSON;/*[
-      {title: 'Meeting-1',start:new Date(y, m, d + 5),end:new Date(y, m, d + 7), eventAgenda: 'Meeting-1 Agenda blah blah', eventAttendees: 'ApoorvaJain;'},
-      {title: 'Meeting-2',start:new Date(y, m, d - 5),end:new Date(y, m, d - 3), eventAgenda: 'Meeting-1 Agenda blah blah', eventAttendees: 'ApoorvaJain;'},
-      {id: 999,title: 'Repeating Meeting-1',start: new Date(y, m, d - 3, 16, 0),allDay: false},
-      {id: 999,title: 'Conference-1',start: new Date(y, m, d + 4, 16, 0),allDay: false},
-      {title: 'Project Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false}
-    ];*/
+    $scope.events = slotsJSON;
     
     /* event source that calls a function on every view switch */
     $scope.eventsF = function (start, end, timezone, callback) {
@@ -28,20 +24,19 @@ mrpApp.controller('CalendarViewController', function($rootScope, $scope,$compile
       callback(events);
     };
 
-    $scope.calEventsExt = {
-       color: '#f00',
-       textColor: 'yellow',
-       events: [ 
-          {type:'party',title: 'Lunch',start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
-          {type:'party',title: 'Lunch 2',start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
-          {type:'party',title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
-        ]
+    $scope.allMeetings = {
+       color: 'black',
+       textColor: 'white',
+       events: slotsJSON
     };
 
     /* alert on eventClick */
     $scope.alertOnEventClick = function( date, jsEvent, view){
-        $scope.alertMessage = (date.title + ' was clicked ');
+        $scope.toggleModal();
+        $scope.clickedEvent = date;
     };
+    
+    
     /* alert on Drop */
      $scope.alertOnDrop = function(event, delta, revertFunc, jsEvent, ui, view){
        $scope.alertMessage = ('Event Droped to make dayDelta ' + delta);
@@ -117,9 +112,9 @@ mrpApp.controller('CalendarViewController', function($rootScope, $scope,$compile
     /* config object */
     $scope.uiConfig = {
       calendar:{
-        height: 450,
+        height: 600,
         editable: true,
-        theme:false,
+        theme:true,
         ignoreTimezone: false,
         header:{
           left: 'title',
@@ -137,7 +132,19 @@ mrpApp.controller('CalendarViewController', function($rootScope, $scope,$compile
 
     /* event sources array*/
     $scope.eventSources = [$scope.events];
-    $scope.eventSources2 = [$scope.calEventsExt];   
+    $scope.eventSources2 = [$scope.allMeetings];  
+    
+    /*
+    (function changeClass(){
+    	var spans = $jQ(".calendar .fc-prev-button .ui-icon-circle-triangle-w");
+    	$jQ(spans[0]).addClass("glyphicon glyphicon-chevron-left");
+    	$jQ(spans[0]).removeClass("ui-icon ui-icon-circle-triangle-w");
+    	
+    	spans = $jQ(".calendar .fc-next-button .ui-icon-circle-triangle-e");
+    	$jQ(spans[0]).addClass("glyphicon glyphicon-chevron-right");
+    	$jQ(spans[0]).removeClass("ui-icon ui-icon-circle-triangle-e");
+    	
+    })();*/
 });
 
 mrpApp.directive('modal', function () {

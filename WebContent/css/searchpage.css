@@ -60,17 +60,14 @@
 	         color: white;
 	         }
 	         
-	         #filters-column span{
-	         color: white;
-	         }
+	
 	         
 	         #filters-column #toggle-filter{
 	         display:block;
 	         position:relative;
-	         top:0;
-	         left:-40px;;
-	         height:40px;
-	         width: 40px;
+	         top:-5px;
+	         left:-25px;
+	         font-size:large;
 	         
 	         }
 	

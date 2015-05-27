@@ -1,89 +1,93 @@
 <div id="searchRoomContainer">
-	<form name="searchRoomForm" novalidate id="searchRoomForm">
-		<div class="row">
-			<div class="col-sm-6 col-xs-12 left-column">
-				<div class="row">
-					<div class="col-sm-8">
-						<div class="input-group">
-							<span class="input-group-addon">
+    <form name="searchRoomForm" novalidate id="searchRoomForm">
+        <div class="row">
+            <div class="col-sm-6 col-xs-12 left-column">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <span class="input-group-addon">
 				            	<span class="glyphicon glyphicon-calendar"></span>
-				            </span>
-				            <input id="datePickerDate" type="text" class="form-control" datepicker-popup="dd-MMMM-yy" ng-model="slotSearch.date" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" show-weeks = "false"/>
-			            </div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-6 col-sm-4">
-						<div class="form-group">
-							<span> FROM: </span>
-			                <div class=''>				           			
-								<timepicker ng-model="slotSearch.startTime" ng-change="changed()" hour-step="1" minute-step="5" show-meridian="false"></timepicker>
-			                </div>
-			            </div>
-					</div>
-					<div class="col-xs-6 col-sm-4">
-						
-						<div class="form-group">
-							<span>TILL: </span>
-			                <div class=''>				           			
-								<timepicker ng-model="slotSearch.endTime" ng-change="changed()" hour-step="1" minute-step="5" show-meridian="false"></timepicker>
-			                </div>
-			            </div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-8">
-						<div class="input-group">
-							<span class="input-group-addon">
-				            	<span class="glyphicon glyphicon-user"></span>
-				            </span>
-				            <input type='text' type="number" class="form-control" placeholder="No of attendees"/>
-			            </div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-8">
-						<div class="input-group" id="select-div">
-					        <span class="input-group-addon">
-					   	    	<span class="glyphicon glyphicon-map-marker"></span>
-					        </span>
-				            <select class="form-control" id="sel1">
-				            	<option>Hyderabad</option>
-					            <option>Banglore</option>
-					            <option>Chennai</option>
-					            <option>United States</option>
-					        </select>
-					        <br>
-				        </div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-8 checkbox">
-					    <label>
-					      <input type="checkbox"> Recurring
-					    </label>
-					</div>
-				</div>
-				<div class="row">
-					<div>
-						<button class="btn btn-primary" type="button" id="submit-button" ng-click="submitSearch(slotSearch, searchRoomForm.$valid)">Submit</button>
-					</div>
-				</div>
-				</div> <!-- Datetimepicker, other input fields --> 
+                            </span>
+                            <input id="datePickerDate" type="text" class="form-control" datepicker-popup="dd-MMMM-yy" ng-model="slotSearch.date" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" show-weeks="false" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-4">
+                        <div class="form-group">
+                            <span> FROM: </span>
+                            <div class=''>
+                                <timepicker ng-model="slotSearch.startTime" ng-change="changed()" hour-step="1" minute-step="5" show-meridian="false"></timepicker>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4">
 
-			<div class="col-sm-6" id="filters-column">
-				<!-- <button id="toggle-filter"><span>F</span></button> -->
-				<button id="toggle-filter">
-			        <span class="glyphicon glypgicon-user">F</span>
-			       </button>
-				<div id = "facilitiesDiv">
-					<h3 class="text-left">Facilities Required</h3>
-			           <div ng-repeat="facility in facilities" class="checkBoxList">
-			               <input type="checkbox" ng-model="facility.value">
-			               <span>{{facility.name}}</span>
-			           </div>
-		        </div>
-			</div> <!-- Filters Column -->
-		</div><!-- Main Row division -->
-	</form>
+                        <div class="form-group">
+                            <span>TILL: </span>
+                            <div class=''>
+                                <timepicker ng-model="slotSearch.endTime" ng-change="changed()" hour-step="1" minute-step="5" show-meridian="false"></timepicker>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+				            	<span class="glyphicon glyphicon-user"></span>
+                            </span>
+                            <input type="number" class="form-control" placeholder="No of attendees" min="1"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="input-group" id="select-div">
+                            <span class="input-group-addon">
+					   	    	<span class="glyphicon glyphicon-map-marker"></span>
+                            </span>
+                            <select class="form-control" id="sel1">
+                                <option>Hyderabad</option>
+                                <option>Banglore</option>
+                                <option>Chennai</option>
+                                <option>United States</option>
+                            </select>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8 checkbox">
+                        <label>
+                            <input type="checkbox"> Recurring
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <button class="btn btn-primary" type="button" id="submit-button" ng-click="submitSearch(slotSearch, searchRoomForm.$valid)">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Datetimepicker, other input fields -->
+
+            <div class="col-sm-6" id="filters-column">
+                <!-- <button id="toggle-filter"><span>F</span></button> -->
+                <a class="c-p" id="toggle-filter" type="button"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span></a>
+                <!-- <button id="toggle-filter">
+                    <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                </button> -->
+                <div id="facilitiesDiv">
+                    <h3 class="text-left">Facilities Required</h3>
+                    <div ng-repeat="facility in facilities" class="checkBoxList">
+                        <input type="checkbox" ng-model="facility.value">
+                        <span>{{facility.name}}</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Filters Column -->
+        </div>
+        <!-- Main Row division -->
+    </form>
 </div>

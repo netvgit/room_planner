@@ -15,7 +15,7 @@
 }
 
 .mt-mns-20 {
-	margin-top: -20px;
+	margin-top: 0px!important;
 }
 
 .mt-40 {
@@ -62,18 +62,29 @@ body {
 	color: #A2B8BF;
 }
 
+/*
 .blue-bg-color {
 	background-color: aliceblue;
 }
+*//*ALICEBLUE REPLACED*/
 
+/**
 .rooms-row {
-	margin-right: -9px;
-	margin-left: -9px;
+	margin-right: -29px;
+	margin-left: -29px;
 }
+
+**//** Useless code**/
 
 .slot-detail {
 	width: 50%
 } 
+
+/*AVAILABLE_ROOMS.HTML*/
+.details .row{
+	margin-bottom:10px;
+}
+
 .details dl {
 	padding: 0px;
 	margin: 0px;
@@ -101,25 +112,25 @@ body {
 	float: right;
 }
 
-.form-group label {
-	font-size: 18px;
+
+.form-group label{
+	font-size: 16px;
 	font-weight: 300;
 	margin: 0;
-	height: 33px;
 }
 
 .mrp-form label {
 	display: inline;
 }
 
-.mrp-form input, .mrp-form select {
+.mrp-form select,.mrp-form input {
 	display: inline;
 	float: right;
 	width: 80%;
 }
 
 .mrp-form .form-group {
-	margin-bottom: 25px;
+	margin-bottom: 27px;
 }
 
 .split-half {
@@ -129,9 +140,11 @@ body {
 }
 
 #content {
-	margin-top: -20px;
+	margin-top: -22px;
 }
 
+
+/*MEDIA QUERIES -- MOBILE VIEW*/
 @media ( max-width : 768px) {
 	.details dt {
 		font-size: 14px;
@@ -149,5 +162,9 @@ body {
 		font-weight: 300;
 		margin: 0;
 		height: 20px;
+	}
+	
+	.profile ul>li>a{
+		padding:5px;
 	}
 }

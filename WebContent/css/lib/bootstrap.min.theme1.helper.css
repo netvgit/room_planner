@@ -1,0 +1,47 @@
+
+/*THEME RELATED*/
+.navbar{
+	font-size:16px;
+}
+.form-control{
+	padding:8px;
+}
+
+/* ONLY TOP CHANGED AS HEIGHT OF NAVBAR IN THIS THEME IS 40PX*/
+#sidebar-wrapper {
+    top: 41px;
+}
+/*END - TOGGLE STYLES*/
+
+.table-hover>tbody>tr:hover {
+	color: black;
+}
+
+/*MEDIA QUERIES  -- MOBILE VIEWS (These were being overwritten by the theme) */
+@media (max-width: 768px) {
+  
+  .main-content {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .container-fluid{
+    padding-right : 0px;
+    padding-left : 0px;
+  }
+
+}/*END OF MEDIA QUERIES*/
+
+
+/* Overlay Up - CHANGE COLOR ACCORDING TO THE COLOR SCHEME*/
+
+.room-overlay{
+background-color: rgba(223, 105, 26, 1);
+color: #FFF;
+}
+
+/*PROFILE PAGE*/
+.profile .nav-tabs>li {
+  float: left;
+  margin-bottom: -1px;
+  width: 33%;
+}

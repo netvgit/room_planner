@@ -113,10 +113,70 @@ var slotsJSON = [{
     "agenda":"Next step2",
     "title":"Next step2",
     "attendees":"sdfsd@sdf.sdfs,sdfsd@sdf.sdfs"
+},{
+    "id": 3,
+    "room_id": 1,
+    "owner_id" : "admin",
+    "date":'2015-05-15',
+    "start": new Date("2015-05-15 12:00 AM"),
+    "end": new Date("2015-05-15 12:30 AM"),
+    "agenda":"Next step15",
+    "title":"Next step15",
+    "attendees":"sdfsd@sdf.sdfs,sdfsd@sdf.sdfs"
+}, {
+    "id": 4,
+    "room_id": 3,
+    "owner_id" : "admin",
+    "date":'2015-05-25',
+    "start": new Date("2015-05-25 10:00 AM"),
+    "end": new Date("2015-05-25 11:00 AM"),
+    "agenda":"Next step25",
+    "title":"Next step25",
+    "attendees":"sdfsd@sdf.sdfs,sdfsd@sdf.sdfs"
+},{
+    "id": 5,
+    "room_id": 1,
+    "owner_id" : "admin",
+    "date":'2015-05-27',
+    "start": new Date("2015-05-27 10:00 AM"),
+    "end": new Date("2015-05-27 11:00 AM"),
+    "agenda":"Next step27",
+    "title":"Next step27",
+    "attendees":"sdfsd@sdf.sdfs,sdfsd@sdf.sdfs"
+}, {
+    "id": 6,
+    "room_id": 3,
+    "owner_id" : "admin",
+    "date":'2015-05-27',
+    "start": new Date("2015-05-27 10:00 AM"),
+    "end": new Date("2015-05-27 11:00 AM"),
+    "agenda":"Next step20",
+    "title":"Next step20",
+    "attendees":"sdfsd@sdf.sdfs,sdfsd@sdf.sdfs"
+},{
+    "id": 7,
+    "room_id": 1,
+    "owner_id" : "admin",
+    "date":'2015-06-28',
+    "start": new Date("2015-06-28 10:00 AM"),
+    "end": new Date("2015-06-28 11:00 AM"),
+    "agenda":"Next step28",
+    "title":"Next step28",
+    "attendees":"sdfsd@sdf.sdfs,sdfsd@sdf.sdfs"
+}, {
+    "id": 8,
+    "room_id": 3,
+    "owner_id" : "admin",
+    "date":'2015-05-26',
+    "start": new Date("2015-05-26 10:00 AM"),
+    "end": new Date("2015-05-26 11:00 AM"),
+    "agenda":"Next step26",
+    "title":"Next step26",
+    "attendees":"sdfsd@sdf.sdfs,sdfsd@sdf.sdfs"
 }];
 
 /**
- * Global object of logged in user.
+ * Global object of user.
  */
 var userJSON = [{
     "id": 1,
@@ -226,7 +286,7 @@ var locationsJSON = [{
     "floor":1,
     "building":"B1",
     "city":"Hyderabad",
-    "state":"Aandra Pradesh",
+    "state":"Andhra Pradesh",
     "country":"India",
     "postal_code":12345,
     "number_rooms":2
@@ -237,8 +297,8 @@ var locationsJSON = [{
     "floor":2,
     "building":"B2",
     "city":"Hyderabad",
-    "state":"Aandra Pradesh",
-    "country":"India",
+    "state":"Ile du Lys",
+    "country":"Glorioso Islands",
     "postal_code":45678,
     "number_rooms":3    
 },
@@ -248,7 +308,7 @@ var locationsJSON = [{
     "floor":3,
     "building":"B3",
     "city":"Hyderabad",
-    "state":"Aandra Pradesh",
+    "state":"Andhra Pradesh",
     "country":"India",
     "postal_code":678905,
     "number_rooms":6
