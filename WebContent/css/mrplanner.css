@@ -164,3 +164,7 @@ body {
 		height: 20px;
 	}
 }
+
+.table-hover>tbody>tr:hover {
+	color: black;
+}
