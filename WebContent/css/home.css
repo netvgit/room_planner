@@ -66,9 +66,9 @@
 }
 
 #toggleBtnSidebar{
-	margin-left:5px;
+	margin-left:8px;
 	position:absolute;
-	top:40px;
+	top:45px;
 	left:0px;
 	display:none;
 	z-index: 10000;
@@ -165,11 +165,12 @@
     }
     #toggleBtnSidebar{
     	display:block;
+    	font-size: large;
     }
     /*SIDEBAR CSS FOR MOBILE VIEWS*/
     
     .v-img {
-        font-size: small;
+        font-size: medium;
     }
     #wrapper.toggled #sidebar-wrapper {
         width: 40px;
