@@ -8,22 +8,22 @@
                     </tab-heading>
                     <div class="btn-toolbar">
                     	<div class="pull-right btn-group" style="margin:10px;">
-                        	<button class="btn active" ng-click="changeView('agendaDay', 'myCalendar1')">Day</button>
-                            <button class="btn" ng-click="changeView('agendaWeek', 'myCalendar1')">Week</button>
-                            <button class="btn" ng-click="changeView('month', 'myCalendar1')">Month</button>
+                        	<button class="btn btn-primary" ng-click="changeView('agendaDay', 'myCalendar1')">Day</button>
+                            <button class="btn btn-primary" ng-click="changeView('agendaWeek', 'myCalendar1')">Week</button>
+                            <button class="btn btn-primary" ng-click="changeView('month', 'myCalendar1')">Month</button>
                         </div>
                     </div>
                     <div class="calendar" ng-model="eventSources" calendar="myCalendar1" ui-calendar="uiConfig.calendar" ></div>
                 </tab>
                 <tab select="renderCalender('myCalendar2');">
                 	<tab-heading>
-                    	<i class="glyphicon glyphicon-bell"></i> My Meetings
+                    	<i class="glyphicon glyphicon-bell"></i> All Meetings
                     </tab-heading>
                     <div class="btn-toolbar">
                     	<div class="pull-right btn-group" style="margin:10px;">
-                        	<button class="btn" ng-click="changeView('agendaDay', 'myCalendar2')">Day</button>
-                            <button class="btn" ng-click="changeView('agendaWeek', 'myCalendar2')">Week</button>
-                            <button class="btn" ng-click="changeView('month', 'myCalendar2')">Month</button>
+                        	<button class="btn btn-primary" ng-click="changeView('agendaDay', 'myCalendar2')">Day</button>
+                            <button class="btn btn-primary" ng-click="changeView('agendaWeek', 'myCalendar2')">Week</button>
+                            <button class="btn btn-primary" ng-click="changeView('month', 'myCalendar2')">Month</button>
                         </div>
                     </div>
                     <div class="calendar" ng-model="eventSources2" calendar="myCalendar2" ui-calendar="uiConfig.calendar" ></div>
