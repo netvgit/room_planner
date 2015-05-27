@@ -123,14 +123,14 @@ body {
 	display: inline;
 }
 
-.mrp-form select {
+.mrp-form select,.mrp-form input {
 	display: inline;
 	float: right;
 	width: 80%;
 }
 
 .mrp-form .form-group {
-	margin-bottom: 15px;
+	margin-bottom: 27px;
 }
 
 .split-half {
