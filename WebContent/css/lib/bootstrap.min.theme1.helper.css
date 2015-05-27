@@ -13,8 +13,9 @@
 }
 /*END - TOGGLE STYLES*/
 
-
-
+.table-hover>tbody>tr:hover {
+	color: black;
+}
 
 /*MEDIA QUERIES  -- MOBILE VIEWS (These were being overwritten by the theme) */
 @media (max-width: 768px) {

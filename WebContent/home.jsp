@@ -4,6 +4,7 @@
 <html lang="en" ng-app="mrpApp">
  <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MR Planner Dashboard</title>
 
   <!-- CSS -->
@@ -15,8 +16,8 @@
   <link rel="stylesheet" href="css/mrplanner.css">
   <link rel="stylesheet" href="css/searchpage.css">
   <link rel="stylesheet" href="css/calendarDemo.css" />
-  <link rel="stylesheet" href="css/bootstrap.min.theme1.css" /> 
-  <link rel="stylesheet" href="css/bootstrap.min.theme1.helper.css" />   
+  <link rel="stylesheet" href="css/lib/bootstrap.min.theme1.css" /> 
+  <link rel="stylesheet" href="css/lib/bootstrap.min.theme1.helper.css" />   
   
   <!-- Lib JS files -->
   <script src="js/lib/jquery.min.js"></script>
@@ -86,7 +87,7 @@ String userId = session.getAttribute("userid").toString();
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#profile">Profile</a></li>
-                            <li><a href="#" id="menu-toggle">Toggle Side Menu</a></li>
+                            <li><a class="c-p" onclick="toggleSideBar()">Toggle Side Menu</a></li>
                             <li><a href="#">My Meetings</a></li>
                             <li><a href="#">All Meetings</a></li>
                             <li class="divider"></li>
@@ -102,7 +103,9 @@ String userId = session.getAttribute("userid").toString();
     </nav>
 
     <div class="" id="wrapper">
-
+		<!-- Sidebar toggle button -->
+		<a class="c-p" id="toggleBtnSidebar" onclick="toggleSideBar()" type="button"><span class="glyphicon glyphicon-chevron-right v-img" aria-hidden="true"></span></a>
+		
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
@@ -113,6 +116,7 @@ String userId = session.getAttribute("userid").toString();
                 <li title="Manage Room" class="not-admin-rm"><a href="#managerooms"><span class="glyphicon glyphicon-home v-img" aria-hidden="true"></span></a></li>
                 <li title="Manage Facility" class="not-admin-rm"><a href="#managefacilities"><span class="glyphicon glyphicon-briefcase v-img" aria-hidden="true"></span></a></li>
                 <li title="Manage Location" class="not-admin-rm"><a href="#managelocations"><span class="glyphicon glyphicon-map-marker v-img" aria-hidden="true"></span></a></li>
+                <li title="Toggle Me"><a class="c-p" onclick="toggleSideBar()"><span class="glyphicon glyphicon-chevron-left v-img" aria-hidden="true"></span></a></li>
                 <li title="Logout"><a href="logout.jsp"><span class="glyphicon glyphicon-off v-img" aria-hidden="true"></span></a></li>                
             </ul>
         </div>

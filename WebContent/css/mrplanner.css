@@ -15,7 +15,7 @@
 }
 
 .mt-mns-20 {
-	margin-top: -20px;
+	margin-top: 0px!important;
 }
 
 .mt-40 {
@@ -163,8 +163,8 @@ body {
 		margin: 0;
 		height: 20px;
 	}
-}
-
-.table-hover>tbody>tr:hover {
-	color: black;
+	
+	.profile ul>li>a{
+		padding:5px;
+	}
 }

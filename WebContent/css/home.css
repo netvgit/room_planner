@@ -64,6 +64,16 @@
 #wrapper.toggled #page-content-wrapper {
     margin-right: -85px;
 }
+
+#toggleBtnSidebar{
+	margin-left:5px;
+	position:absolute;
+	top:40px;
+	left:0px;
+	display:none;
+	z-index: 10000;
+}
+
 /*END - TOGGLE STYLES*/
 /* Sidebar Styles */
 
@@ -152,6 +162,9 @@
     }
     #wrapper.toggled {
         padding-left: 40px;
+    }
+    #toggleBtnSidebar{
+    	display:block;
     }
     /*SIDEBAR CSS FOR MOBILE VIEWS*/
     

@@ -24,5 +24,14 @@ jQuery(function($) {
         e.preventDefault();
         console.log("menu-toggle");
         $("#wrapper").toggleClass("toggled");
-    });
+    });    
 });
+
+/**
+ * Toggles side bar
+ */
+function toggleSideBar()
+{
+	$jQ("#wrapper").toggleClass("toggled");	
+	$jQ("#toggleBtnSidebar").toggle();
+}

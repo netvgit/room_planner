@@ -14,7 +14,7 @@
     </div>
     <div class="row rooms-row">
         <div class="col-xs-12 col-sm-6 col-lg-4 room-body" ng-repeat="room in mrp.roomsList | filter:mrp.roomsList.search | orderBy:'name'">
-            <div class="room-overlay-parent panel panel-primary" ng-click='bookSlot(room.id)'>
+            <div class="room-overlay-parent panel panel-primary c-p" ng-click='bookSlot(room.id)'>
                 <div class="panel-heading">
                     <h3 class="panel-title" ng-bind="room.name"></h3>
                 </div>
@@ -100,7 +100,7 @@
                                 <label>Meeting Title</label>
                             </div>
                             <div class="col-sm-9">
-                                <input type="text" name="title" class="form-control" ng-model="slot.title" required>
+                                <input style="float:none;" type="text" name="title" class="form-control" ng-model="slot.title" required>
                             </div>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                                 <label>Agenda</label>
                             </div>
                             <div class="col-sm-9">
-                                <input type="text" name="agenda" class="form-control" ng-model="slot.agenda" ng-minlength="3">
+                                <input style="float:none;" type="text" name="agenda" class="form-control" ng-model="slot.agenda" ng-minlength="3">
                             </div>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                                 <label>Attendees</label>
                             </div>
                             <div class="col-sm-9">
-                                <input type="text" name="attendees" class="form-control" ng-model="slot.attendees">
+                                <input style="float:none;" type="text" name="attendees" class="form-control" ng-model="slot.attendees">
                             </div>
                         </div>
                     </div>
