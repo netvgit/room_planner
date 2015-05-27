@@ -14,7 +14,9 @@
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/mrplanner.css">
   <link rel="stylesheet" href="css/searchpage.css">
-  <link rel="stylesheet" href="css/calendarDemo.css" />   
+  <link rel="stylesheet" href="css/calendarDemo.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.theme1.css" /> 
+  <link rel="stylesheet" href="css/bootstrap.min.theme1.helper.css" />   
   
   <!-- Lib JS files -->
   <script src="js/lib/jquery.min.js"></script>

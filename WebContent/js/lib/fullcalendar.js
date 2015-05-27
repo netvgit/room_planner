@@ -1146,8 +1146,13 @@ function Header(calendar, options) {
 							if (customText) {
 								innerHtml = htmlEscape(customText);
 							}
+							//EDITED BY APOORVA 
 							else if (themeIcon && options.theme) {
-								innerHtml = "<span class='ui-icon ui-icon-" + themeIcon + "'></span>";
+								//innerHtml = "<span class='ui-icon ui-icon-" + themeIcon + "'></span>";
+								if(themeIcon == "circle-triangle-e")
+									innerHtml = "<span class='glyphicon glyphicon-chevron-right'></span>";
+								else
+									innerHtml = "<span class='glyphicon glyphicon-chevron-left'></span>";
 							}
 							else if (normalIcon && !options.theme) {
 								innerHtml = "<span class='fc-icon fc-icon-" + normalIcon + "'></span>";
